@@ -2,8 +2,10 @@
   <div id="teleports"></div>
   <div id="wrap" ref="wrap">
     <Loader />
-    <header><Header :width="wrapWidth" /></header>
-    {{ wrapWidth }}
+    <header>
+      <Header :width="wrapWidth" />
+    </header>
+
     <main>
       <Title>2</Title>
       <Hero />
@@ -23,6 +25,6 @@ const wrap = ref();
 const { wrapWidth, scrollbarWidth } = useLayout(wrap);
 
 onMounted(() => {
-  console.log(wrapWidth);
+  // console.log(wrapWidth);
 });
 </script>

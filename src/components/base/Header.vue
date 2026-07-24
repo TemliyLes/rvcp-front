@@ -3,7 +3,7 @@
     class="fixed top-0 h-[90px] bg-red-300 z-[888] left-0"
     :style="widthStyle"
   >
-    1
+    <p class="font-noto font-bold">123123</p>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div id="teleports"></div>
   <div id="wrap" ref="wrap">
+    <Loader />
     <header><Header :width="wrapWidth" /></header>
     {{ wrapWidth }}
     <main>
@@ -15,6 +16,7 @@ import Title from "./components/base/Title.vue";
 import Hero from "./components/screens/Hero.vue";
 import Header from "./components/base/Header.vue";
 import { useLayout } from "./composables/useLayout";
+import Loader from "./components/base/Loader.vue";
 
 const wrap = ref();
 

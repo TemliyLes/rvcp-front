@@ -1,5 +1,11 @@
 <template>
-  <div class="bg-red-300">
+  <component :is="tag" class="relative">
     <slot />
-  </div>
+  </component>
 </template>
+
+<script setup>
+const props = defineProps({
+  tag: { type: String, default: "h2" },
+});
+</script>

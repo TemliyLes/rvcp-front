@@ -19,7 +19,7 @@
           />
         </video>
 
-        <div class="absolute inset-0 bg-black/25"></div>
+        <div class="absolute inset-0 bg-black/25" />
 
         <div
           class="relative z-10 flex h-full flex-col justify-end p-6 pb-16 text-white md:p-12 md:pb-20"
@@ -62,6 +62,22 @@ let trigger = null;
 let animation = null;
 let frameId = null;
 
+const MAGNET_ZONE = 0.2;
+const SCRUB_DELAY = 0.9;
+const SNAP_DELAY = 0.08;
+
+const getMagneticProgress = (progress) => {
+  if (progress <= MAGNET_ZONE) {
+    return 0;
+  }
+
+  if (progress >= 1 - MAGNET_ZONE) {
+    return 1;
+  }
+
+  return progress;
+};
+
 const destroyAnimation = () => {
   if (frameId) {
     cancelAnimationFrame(frameId);
@@ -83,6 +99,8 @@ const createAnimation = async () => {
   await nextTick();
 
   frameId = requestAnimationFrame(() => {
+    frameId = null;
+
     const scroller = document.querySelector("#wrap");
 
     if (!scroller || !hero.value || !perspective.value || !content.value) {
@@ -118,20 +136,26 @@ const createAnimation = async () => {
       trigger = ScrollTrigger.create({
         trigger: hero.value,
         scroller,
+        animation,
+
         start: "top top",
         end: "bottom top",
+
+        scrub: SCRUB_DELAY,
+
+        snap: {
+          snapTo: getMagneticProgress,
+          delay: SNAP_DELAY,
+          duration: {
+            min: 0.35,
+            max: 0.8,
+          },
+          ease: "power3.out",
+          inertia: false,
+        },
+
         invalidateOnRefresh: true,
-
-        onUpdate(self) {
-          animation.progress(self.progress);
-        },
-
-        onRefresh(self) {
-          animation.progress(self.progress);
-        },
       });
-
-      animation.progress(trigger.progress);
     }, hero.value);
 
     ScrollTrigger.refresh();

@@ -1,7 +1,7 @@
 <template>
   <header class="fixed left-0 top-0 z-[888] h-[90px]" :style="headerStyle">
     <div
-      class="flex h-full w-full box-border items-center gap-4 px-12 backdrop-blur-2xl"
+      class="box-border flex h-full w-full items-center gap-4 px-12 backdrop-blur-2xl"
     >
       <Logo class="relative shrink-0" />
     </div>
@@ -10,6 +10,7 @@
 
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+
 import Logo from "../icons/Logo.vue";
 
 const props = defineProps({
@@ -17,6 +18,7 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+
   active: {
     type: Number,
     default: 0,
@@ -26,29 +28,64 @@ const props = defineProps({
 const backgroundOpacity = ref(0);
 
 let wrap = null;
-let frameId = null;
+let animationFrame = null;
+let targetOpacity = 0;
 
-const updateBackground = () => {
-  if (!wrap) return;
+const INERTIA = 0.075;
+const STOP_THRESHOLD = 0.001;
+
+const getTargetOpacity = () => {
+  if (!wrap) return 0;
 
   const screenHeight = wrap.clientHeight;
-  const progress = screenHeight ? wrap.scrollTop / screenHeight : 0;
 
-  backgroundOpacity.value = Math.min(Math.max(progress, 0), 1);
+  if (!screenHeight) return 0;
+
+  const progress = wrap.scrollTop / screenHeight;
+
+  return Math.min(Math.max(progress, 0), 1);
+};
+
+const animateBackground = () => {
+  const difference = targetOpacity - backgroundOpacity.value;
+
+  backgroundOpacity.value += difference * INERTIA;
+
+  if (Math.abs(difference) > STOP_THRESHOLD) {
+    animationFrame = requestAnimationFrame(animateBackground);
+
+    return;
+  }
+
+  backgroundOpacity.value = targetOpacity;
+  animationFrame = null;
+};
+
+const startBackgroundAnimation = () => {
+  targetOpacity = getTargetOpacity();
+
+  if (animationFrame) return;
+
+  animationFrame = requestAnimationFrame(animateBackground);
 };
 
 const handleScroll = () => {
-  if (frameId) return;
+  startBackgroundAnimation();
+};
 
-  frameId = requestAnimationFrame(() => {
-    updateBackground();
-    frameId = null;
-  });
+const handleResize = () => {
+  startBackgroundAnimation();
 };
 
 const headerStyle = computed(() => ({
   width: props.width ? `${props.width}px` : "100%",
-  backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity.value})`,
+
+  backgroundColor: `rgba(
+    17,
+    17,
+    17,
+    ${backgroundOpacity.value}
+  )`,
 }));
 
 onMounted(() => {
@@ -56,21 +93,24 @@ onMounted(() => {
 
   if (!wrap) return;
 
-  updateBackground();
+  targetOpacity = getTargetOpacity();
+  backgroundOpacity.value = targetOpacity;
 
   wrap.addEventListener("scroll", handleScroll, {
     passive: true,
   });
 
-  window.addEventListener("resize", updateBackground);
+  window.addEventListener("resize", handleResize);
 });
 
 onBeforeUnmount(() => {
   wrap?.removeEventListener("scroll", handleScroll);
-  window.removeEventListener("resize", updateBackground);
 
-  if (frameId) {
-    cancelAnimationFrame(frameId);
+  window.removeEventListener("resize", handleResize);
+
+  if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
   }
 });
 </script>

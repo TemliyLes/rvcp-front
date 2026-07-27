@@ -3,18 +3,21 @@
 
   <div id="teleports">
     <Modal :video="video" v-model="isModalOpen" />
+    <ModalForm v-model="isFormOpen" />
   </div>
 
   <div id="wrap" ref="wrap" class="h-dvh overflow-x-hidden overflow-y-auto">
-    <Header :width="wrapWidth" />
+    <Header @open="openForm" :width="wrapWidth"><Menu /></Header>
 
     <main>
       <Title>2</Title>
 
-      <Hero :ready="animationsReady" />
-      <div class="flex justify-between container pt-24 cursor-pointer">
+      <Hero @open="openForm" :ready="animationsReady" />
+      <div
+        class="md:flex justify-between container pt-24 cursor-pointer px-4 md:px-0"
+      >
         <Title>Vybrané realizace</Title>
-        <Title tag="h3" class="grid place-items-center -mb-4"
+        <Title tag="h3" class="grid place-items-center md:-mb-4 w-fit"
           ><a
             href="https://www.youtube.com/@ObkladaFinalizácia"
             class="flex gap-3"
@@ -28,7 +31,8 @@
         <About />
       </div>
       <FAQ />
-      <div class="bg-red-100 h-dvh"></div>
+      <Feedback />
+      <Footer />
     </main>
   </div>
 </template>
@@ -47,6 +51,10 @@ import CardGrid from "./components/cards/Grid.vue";
 import Modal from "./components/modal/Modal.vue";
 import About from "./components/screens/About.vue";
 import FAQ from "./components/screens/FAQ.vue";
+import Feedback from "./components/screens/Feedback.vue";
+import ModalForm from "./components/modal/ModalForm.vue";
+import Footer from "./components/screens/Footer.vue";
+import Menu from "./components/base/Menu.vue";
 
 const wrap = ref(null);
 const animationsReady = ref(false);
@@ -61,6 +69,13 @@ const showModal = (val) => {
   requestAnimationFrame(() => {
     isModalOpen.value = true;
   });
+};
+
+const isFormOpen = ref(false);
+
+const openForm = () => {
+  // alert(1);
+  isFormOpen.value = true;
 };
 
 const handleLoaderComplete = async () => {

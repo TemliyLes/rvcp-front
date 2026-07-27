@@ -25,12 +25,21 @@
           class="relative z-10 flex h-full flex-col justify-end p-6 pb-16 text-white md:p-12 md:pb-20"
         >
           <h1 class="max-w-5xl text-5xl font-medium leading-[0.95] md:text-8xl">
-            Furniture collection
+            Prémiové rekonstrukce na klíč
           </h1>
 
           <p class="mt-6 max-w-xl text-base text-white/70 md:text-xl">
-            Современная мебель и выразительный интерьер
+            Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od
+            návrhu přes plánování až po finální realizaci s důrazem na kvalitu,
+            precizní provedení a nadčasový výsledek.
           </p>
+          <a
+            @click="open"
+            href="#"
+            class="flex mt-4 w-fit items-center justify-center bg-white transition hover:bg-[#ccc] px-8 py-5 text-base text-black"
+          >
+            Domluvit konzultaci
+          </a>
         </div>
       </div>
     </div>
@@ -56,6 +65,12 @@ const hero = ref(null);
 const perspective = ref(null);
 const content = ref(null);
 const video = ref(null);
+
+const emit = defineEmits("open");
+
+const open = () => {
+  emit("open");
+};
 
 let context = null;
 let trigger = null;

@@ -31,3 +31,16 @@ h2 {
   text-transform: uppercase;
   color: #4c4c4c;
 }
+h3 {
+  font-size: 18px;
+  color: #4c4c4c;
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 13px;
+  }
+}

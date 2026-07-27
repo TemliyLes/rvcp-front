@@ -1,9 +1,14 @@
 <template>
-  <header class="fixed left-0 top-0 z-[888] h-[90px]" :style="headerStyle">
+  <header
+    class="fixed left-0 top-0 z-[888] h-[90px] grid place-items-center"
+    :style="headerStyle"
+  >
     <div
       class="box-border flex h-full w-full items-center gap-4 px-12 backdrop-blur-2xl"
     >
       <Logo class="relative shrink-0" />
+      <slot />
+      <!-- <div @click="openModal">1</div> -->
     </div>
   </header>
 </template>
@@ -26,6 +31,7 @@ const props = defineProps({
 });
 
 const backgroundOpacity = ref(0);
+const emit = defineEmits("open");
 
 let wrap = null;
 let animationFrame = null;
@@ -59,6 +65,10 @@ const animateBackground = () => {
 
   backgroundOpacity.value = targetOpacity;
   animationFrame = null;
+};
+
+const openModal = () => {
+  emit("open");
 };
 
 const startBackgroundAnimation = () => {

@@ -1,6 +1,9 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import "./ssr-shim.js";
+import "./assets/main.css";
 
-createApp(App).mount('#app')
+import { ViteSSG } from "vite-ssg/single-page";
+import App from "./App.vue";
+
+export const createApp = ViteSSG(App);

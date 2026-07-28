@@ -7,7 +7,7 @@
     <div class="group">
       <label
         for="feedback-name"
-        class="mb-1 block text-xs text-black/50 transition-colors group-focus-within:text-black"
+        class="mb-1 block text-xs text-black/80 font-bold transition-colors group-focus-within:text-black"
       >
         Vaše jméno
       </label>
@@ -19,7 +19,7 @@
         type="text"
         autocomplete="name"
         placeholder="Jak vás můžeme oslovovat"
-        class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-sm text-black outline-none transition-colors placeholder:text-black/25 focus:border-black md:text-base"
+        class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-lg text-black outline-none transition-colors placeholder:text-black/35 focus:border-black md:text-base"
       />
     </div>
 
@@ -28,7 +28,7 @@
       <div class="group">
         <label
           for="feedback-phone"
-          class="mb-1 block text-xs text-black/50 transition-colors group-focus-within:text-black"
+          class="mb-1 block text-xs text-black/80 font-bold transition-colors group-focus-within:text-black"
         >
           Telefon
         </label>
@@ -40,14 +40,14 @@
           type="tel"
           autocomplete="tel"
           placeholder="+421 940 400 000"
-          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-sm text-black outline-none transition-colors placeholder:text-black/25 focus:border-black md:text-base"
+          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-lg text-black outline-none transition-colors placeholder:text-black/35 focus:border-black md:text-base"
         />
       </div>
 
       <div class="group">
         <label
           for="feedback-email"
-          class="mb-1 block text-xs text-black/50 transition-colors group-focus-within:text-black"
+          class="mb-1 block text-xs text-black/80 font-bold transition-colors group-focus-within:text-black"
         >
           E-mail
         </label>
@@ -59,7 +59,7 @@
           type="email"
           autocomplete="email"
           placeholder="mail@example.com"
-          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-sm text-black outline-none transition-colors placeholder:text-black/25 focus:border-black md:text-base"
+          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-lg text-black outline-none transition-colors placeholder:text-black/35 focus:border-black md:text-base"
         />
       </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="group">
       <label
         for="feedback-area"
-        class="mb-1 block text-xs text-black/50 transition-colors group-focus-within:text-black"
+        class="mb-1 block text-xs text-black/80 font-bold transition-colors group-focus-within:text-black"
       >
         Plocha prostoru
       </label>
@@ -85,11 +85,11 @@
           type="text"
           inputmode="decimal"
           placeholder="Například 85"
-          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 pr-10 text-sm text-black outline-none transition-colors placeholder:text-black/25 focus:border-black md:text-base"
+          class="w-full border-0 border-b border-black/20 bg-transparent px-0 py-1.5 pr-10 text-lg text-black outline-none transition-colors placeholder:text-black/35 focus:border-black md:text-base"
         />
 
         <span
-          class="pointer-events-none absolute bottom-1.5 right-0 text-sm text-black/35"
+          class="pointer-events-none absolute bottom-1.5 right-0 text-lg text-black/35"
         >
           m²
         </span>
@@ -100,7 +100,7 @@
     <div class="group flex min-h-0 flex-col">
       <label
         for="feedback-description"
-        class="mb-1 block shrink-0 text-xs text-black/50 transition-colors group-focus-within:text-black"
+        class="mb-1 block shrink-0 text-xs text-black/80 font-bold transition-colors group-focus-within:text-black"
       >
         Co je potřeba zrekonstruovat
       </label>
@@ -110,7 +110,7 @@
         v-model="formData.description"
         name="description"
         placeholder="Stručně popište prostor a požadovaný výsledek ve dvou větách"
-        class="min-h-0 w-full flex-1 resize-none overflow-hidden border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-sm leading-relaxed text-black outline-none transition-colors placeholder:text-black/25 focus:border-black md:text-base"
+        class="min-h-0 w-full flex-1 resize-none overflow-hidden border-0 border-b border-black/20 bg-transparent px-0 py-1.5 text-lg leading-relaxed text-black outline-none transition-colors placeholder:text-black/35 focus:border-black md:text-base"
       />
     </div>
 

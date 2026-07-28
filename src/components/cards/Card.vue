@@ -12,15 +12,12 @@
   </div>
 </template>
 <script setup>
+import { getImageUrl } from "@/composables/src.js";
 import Play from "../icons/Play.vue";
 const props = defineProps({
   data: { type: Object },
 });
-const getImageUrl = (path) => {
-  if (!path) return "";
 
-  return new URL(path, window.location.origin).href;
-};
 const emit = defineEmits("show");
 const show = (e) => {
   emit("show", e);

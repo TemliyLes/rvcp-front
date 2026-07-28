@@ -964,7 +964,7 @@ const scrollToSection = async (id) => {
   window.history.replaceState(
     null,
     "",
-    `${window.location.pathname}${window.location.search}#${id}`,
+    `${window?.location?.pathname}${window?.location?.search}#${id}`,
   );
 };
 
@@ -1056,7 +1056,7 @@ onMounted(async () => {
     ScrollTrigger.refresh();
     ScrollTrigger.update();
 
-    const initialHash = window.location.hash.slice(1);
+    const initialHash = window?.location?.hash?.slice(1);
 
     const initialItem = safeMenuItems.find((item) => item.id === initialHash);
 

@@ -63,6 +63,7 @@
 </template>
 
 <script setup>
+import { getImageUrl } from "@/composables/src";
 import { nextTick, onBeforeUnmount, ref, watch } from "vue";
 
 import { gsap } from "gsap";
@@ -115,7 +116,7 @@ const unlockScroll = () => {
 const getSrc = (path) => {
   if (!path) return "";
 
-  return new URL(path, window.location.origin).href;
+  return getImageUrl(path);
 };
 
 const handleKeydown = (event) => {

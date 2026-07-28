@@ -1,5 +1,9 @@
 <template>
-  <Loader @complete="handleLoaderComplete" />
+  <Loader
+    :ready="isLoaded"
+    :ready-delay="1500"
+    @complete="handleLoaderComplete"
+  />
 
   <div id="teleports">
     <Modal :video="video" v-model="isModalOpen" />
@@ -7,12 +11,18 @@
   </div>
 
   <div id="wrap" ref="wrap" class="h-dvh overflow-x-hidden overflow-y-auto">
-    <Header @open="openForm" :width="wrapWidth"><Menu /></Header>
+    <Header @open="openForm" :width="wrapWidth"
+      ><Menu /><Phone class="hidden md:flex"
+    /></Header>
 
     <main>
       <Title>2</Title>
 
-      <Hero @open="openForm" :ready="animationsReady" />
+      <Hero
+        :ready="animationsReady"
+        @video-ready="onLoadVideo"
+        @open="openForm"
+      />
       <div
         class="md:flex justify-between container pt-24 cursor-pointer px-4 md:px-0"
       >
@@ -55,6 +65,7 @@ import Feedback from "./components/screens/Feedback.vue";
 import ModalForm from "./components/modal/ModalForm.vue";
 import Footer from "./components/screens/Footer.vue";
 import Menu from "./components/base/Menu.vue";
+import Phone from "./components/base/Phone.vue";
 
 const wrap = ref(null);
 const animationsReady = ref(false);
@@ -72,6 +83,12 @@ const showModal = (val) => {
 };
 
 const isFormOpen = ref(false);
+
+const isLoaded = ref(false);
+
+const onLoadVideo = () => {
+  isLoaded.value = true;
+};
 
 const openForm = () => {
   // alert(1);

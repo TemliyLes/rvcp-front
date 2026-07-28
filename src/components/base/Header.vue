@@ -4,11 +4,10 @@
     :style="headerStyle"
   >
     <div
-      class="box-border flex h-full w-full items-center gap-4 px-12 backdrop-blur-2xl"
+      class="box-border flex justify-between h-full w-full items-center gap-4 px-4 md:px-12 backdrop-blur-2xl"
     >
-      <Logo class="relative shrink-0" />
+      <Logo class="hidden md:block md:relative shrink-0 absolute" />
       <slot />
-      <!-- <div @click="openModal">1</div> -->
     </div>
   </header>
 </template>
@@ -30,26 +29,29 @@ const props = defineProps({
   },
 });
 
-const backgroundOpacity = ref(0);
-const emit = defineEmits("open");
+const BASE_OPACITY = 0.85;
+
+const backgroundOpacity = ref(BASE_OPACITY);
+
+const emit = defineEmits(["open"]);
 
 let wrap = null;
 let animationFrame = null;
-let targetOpacity = 0;
+let targetOpacity = BASE_OPACITY;
 
 const INERTIA = 0.075;
 const STOP_THRESHOLD = 0.001;
 
 const getTargetOpacity = () => {
-  if (!wrap) return 0;
+  if (!wrap) return BASE_OPACITY;
 
   const screenHeight = wrap.clientHeight;
 
-  if (!screenHeight) return 0;
+  if (!screenHeight) return BASE_OPACITY;
 
   const progress = wrap.scrollTop / screenHeight;
 
-  return Math.min(Math.max(progress, 0), 1);
+  return BASE_OPACITY + Math.min(Math.max(progress, 0), 1) * (1 - BASE_OPACITY);
 };
 
 const animateBackground = () => {
@@ -59,16 +61,11 @@ const animateBackground = () => {
 
   if (Math.abs(difference) > STOP_THRESHOLD) {
     animationFrame = requestAnimationFrame(animateBackground);
-
     return;
   }
 
   backgroundOpacity.value = targetOpacity;
   animationFrame = null;
-};
-
-const openModal = () => {
-  emit("open");
 };
 
 const startBackgroundAnimation = () => {
@@ -104,7 +101,9 @@ onMounted(() => {
   if (!wrap) return;
 
   targetOpacity = getTargetOpacity();
-  backgroundOpacity.value = targetOpacity;
+
+  // стартуем сразу с базовой темной полоски
+  backgroundOpacity.value = BASE_OPACITY;
 
   wrap.addEventListener("scroll", handleScroll, {
     passive: true,

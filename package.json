@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,12 +14,14 @@
     "vue": "^3.5.40"
   },
   "devDependencies": {
+    "@unhead/vue": "^2.1.16",
     "@vitejs/plugin-vue": "^6.0.8",
     "autoprefixer": "^10.5.4",
     "postcss": "^8.5.22",
     "tailwindcss": "^4.3.3",
     "vite": "^8.1.5",
-    "vite-plugin-vue-devtools": "^8.1.5"
+    "vite-plugin-vue-devtools": "^8.1.5",
+    "vite-ssg": "^28.3.0"
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"

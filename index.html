@@ -47,7 +47,20 @@
   </head>
 
   <body>
-    <div id="app"></div>
+    <!--
+      Loader, модальные окна и другие fixed-элементы
+      телепортируются сюда, вне ScrollSmoother.
+    -->
+    <div id="teleports"></div>
+
+    <!-- Неподвижная оболочка ScrollSmoother -->
+    <div id="smooth-wrapper">
+      <!-- Контейнер, который ScrollSmoother перемещает -->
+      <div id="smooth-content">
+        <!-- Vue-приложение -->
+        <div id="app"></div>
+      </div>
+    </div>
 
     <noscript>
       Pro správné fungování této stránky je nutné povolit JavaScript.

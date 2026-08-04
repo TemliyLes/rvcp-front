@@ -7,7 +7,7 @@
     <a
       :href="show ? `tel:${phone}` : '#'"
       class="text-sm text-white"
-      @click.prevent="!show && (show = true)"
+      @click.prevent="onClick"
     >
       <span>{{ visiblePart }}</span>
 
@@ -34,8 +34,16 @@ const props = defineProps({
     default: "+421 900 123 456",
   },
 });
+const emit = defineEmits(["open"]);
 
 const show = ref(false);
+const onClick = () => {
+  if (!show.value) {
+    show.value = true;
+  } else {
+    emit("open");
+  }
+};
 
 const visiblePart = computed(() => {
   return props.phone.slice(0, -3);

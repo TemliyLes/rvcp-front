@@ -66,7 +66,7 @@
 import { getImageUrl } from "@/composables/src";
 import { nextTick, onBeforeUnmount, ref, watch } from "vue";
 
-import { gsap } from "gsap";
+import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 const props = defineProps({
   modelValue: {

@@ -66,7 +66,7 @@
           <div
             class="px-6 pb-8 pt-20 md:px-10 md:pb-10 md:pt-20 lg:px-14 lg:pb-14"
           >
-            <Form />
+            <Form @close="closeModal" />
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
 <script setup>
 import { nextTick, onBeforeUnmount, ref, watch } from "vue";
 
-import { gsap } from "gsap";
+import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 import Form from "../base/Form.vue";
 

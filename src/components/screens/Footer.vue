@@ -42,10 +42,11 @@
           </a>
 
           <a
-            href="tel:+421940400000"
+            @click.prevent="open"
+            href="tel:+421 900 123 456"
             class="mt-2.5 text-base leading-tight transition-opacity duration-300 hover:opacity-55 sm:text-lg lg:text-xl"
           >
-            +421 940 400 000
+            +421 900 123 456
           </a>
 
           <a
@@ -134,8 +135,7 @@
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,6 +155,12 @@ const copyright = ref(null);
 const brand = ref(null);
 const brandMain = ref(null);
 const brandSecondary = ref(null);
+
+const emit = defineEmits(["open"]);
+
+const open = () => {
+  emit("open");
+};
 
 let context = null;
 let mediaContext = null;

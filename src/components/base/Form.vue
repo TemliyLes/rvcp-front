@@ -158,6 +158,12 @@
 <script setup>
 import { reactive, ref } from "vue";
 
+import { useDataLayer } from "@/utils/metrix";
+const { formSubmitSuccess } = useDataLayer();
+
+const onFormSuccess = () => {
+  formSubmitSuccess();
+};
 const formData = reactive({
   name: "",
   phone: "+4",
@@ -253,16 +259,6 @@ const validateForm = () => {
   validatePhone();
   validateEmail();
 
-  console.log("PHONE VALUE:", formData.phone);
-  console.log("PHONE DIGITS:", formData.phone.replace(/\D/g, ""));
-
-  console.log("EMAIL VALUE:", formData.email);
-
-  console.log({
-    phoneError: errors.phone,
-    emailError: errors.email,
-  });
-
   return !Object.values(errors).some(Boolean);
 };
 const resetForm = () => {
@@ -330,6 +326,7 @@ const handleSubmit = async () => {
     resetForm();
 
     setTimeout(() => {
+      onFormSuccess();
       emit("close");
     }, 1500);
   } catch (error) {

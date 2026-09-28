@@ -12,7 +12,7 @@
 
   <div id="wrap" ref="wrap" class="h-dvh overflow-x-hidden overflow-y-auto">
     <Header @open="openForm" :width="wrapWidth"
-      ><Menu /><Phone class="hidden md:flex"
+      ><Menu /><Phone @open="openForm" class="hidden md:flex"
     /></Header>
 
     <main>
@@ -41,6 +41,7 @@
         <About />
       </div>
       <FAQ />
+      <Supremacy />
       <Feedback />
       <Footer />
     </main>
@@ -66,6 +67,7 @@ import ModalForm from "./components/modal/ModalForm.vue";
 import Footer from "./components/screens/Footer.vue";
 import Menu from "./components/base/Menu.vue";
 import Phone from "./components/base/Phone.vue";
+import Supremacy from "./components/screens/Supremacy.vue";
 
 const wrap = ref(null);
 const animationsReady = ref(false);

@@ -41,13 +41,13 @@
             obklad.finalizacia@gmail.com
           </a>
 
-          <a
+          <!-- <a
             @click.prevent="open"
             href="tel:+421 900 123 456"
             class="mt-2.5 text-base leading-tight transition-opacity duration-300 hover:opacity-55 sm:text-lg lg:text-xl"
           >
             +421 900 123 456
-          </a>
+          </a> -->
 
           <a
             href="https://www.google.com/maps/search/?api=1&query=Šancová+45,+811+05+Bratislava,+Slovensko"
@@ -69,19 +69,19 @@
             Informace
           </p>
 
-          <RouterLink
-            to="/zasady-ochrany-osobnich-udaju"
+          <a
+            href="/ochrana.html"
             class="border-b border-white/15 py-2 text-sm leading-relaxed text-white/60 transition-colors duration-300 hover:border-white hover:text-white"
           >
             Zásady ochrany osobních údajů
-          </RouterLink>
+          </a>
 
-          <RouterLink
+          <!-- <RouterLink
             to="/zasady-pouzivani-cookies"
             class="border-b border-white/15 py-2 text-sm leading-relaxed text-white/60 transition-colors duration-300 hover:border-white hover:text-white"
           >
             Zásady používání cookies
-          </RouterLink>
+          </RouterLink> -->
         </nav>
       </div>
 

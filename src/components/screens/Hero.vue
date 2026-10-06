@@ -25,7 +25,7 @@
           class="relative z-10 flex h-full flex-col justify-end p-6 pb-16 text-white md:p-12 md:pb-20"
         >
           <h1 class="max-w-5xl text-5xl font-medium leading-[0.95] md:text-8xl">
-            Prémiové rekonstrukce na klíč
+            {{ t("site.title") }}
           </h1>
 
           <p class="mt-6 max-w-xl text-base text-white/70 md:text-xl">
@@ -56,7 +56,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroVideo from "../../assets/video/furniture_hero.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const props = defineProps({
   /*
    * Этот проп становится true после

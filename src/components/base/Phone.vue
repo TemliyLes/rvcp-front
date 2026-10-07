@@ -17,13 +17,22 @@
 <script setup>
 import { computed, ref } from "vue";
 import Phone from "../icons/Phone.vue";
-const props = defineProps({
-  phone: {
-    type: String,
-    default: "+420 949 73....",
-  },
-});
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+// const props = defineProps({
+//   phone: {
+//     type: String,
+//     default: "+420 949 73....",
+//   },
+// });
 const emit = defineEmits(["open"]);
+
+const isCz = computed(() => locale?.value === "sk");
+
+const phone = computed(() =>
+  isCz.value ? "+420 949 73...." : "+421 940 40....",
+);
 
 const show = ref(false);
 const onClick = () => {

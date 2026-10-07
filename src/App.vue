@@ -26,10 +26,7 @@
       <div
         class="md:flex justify-between container pt-24 cursor-pointer px-4 md:px-0"
       >
-        <Title
-          >Vybrané realizace
-          <span class="text-red-300">locale {{ locale }}</span></Title
-        >
+        <Title>Vybrané realizace</Title>
         <Title tag="h3" class="grid place-items-center md:-mb-4 w-fit"
           ><a
             href="https://www.youtube.com/@ObkladaFinalizácia"
@@ -71,9 +68,6 @@ import Footer from "./components/screens/Footer.vue";
 import Menu from "./components/base/Menu.vue";
 import Phone from "./components/base/Phone.vue";
 import Supremacy from "./components/screens/Supremacy.vue";
-import { useI18n } from "vue-i18n";
-
-const { locale } = useI18n();
 
 const wrap = ref(null);
 

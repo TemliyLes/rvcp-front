@@ -1,3 +1,4 @@
+globalThis.__VUE_PROD_DEVTOOLS__ = false;
 import "./ssr-shim.js";
 import "./assets/main.css";
 

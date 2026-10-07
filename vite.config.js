@@ -30,5 +30,8 @@ export default defineConfig(({ command }) => {
       assetsDir: "assets",
       emptyOutDir: true,
     },
+     define: {
+    __VUE_PROD_DEVTOOLS__: false,
+   },
   };
 });

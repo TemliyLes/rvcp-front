@@ -31,7 +31,7 @@ const emit = defineEmits(["open"]);
 const isCz = computed(() => locale?.value === "sk");
 
 const phone = computed(() =>
-  !isCz.value ? "+420 949 75...." : "+421 940 40....",
+  !isCz.value ? "+420 949 75......." : "+421 940 40.......",
 );
 
 const show = ref(false);

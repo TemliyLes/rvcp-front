@@ -265,7 +265,7 @@ const refreshScrollTrigger = () => {
 };
 
 const setInitialAccordionState = () => {
-  steps.forEach((_, index) => {
+  steps.value.forEach((_, index) => {
     const answer = answerRefs.value[index];
     const inner = answerInnerRefs.value[index];
     const icon = iconRefs.value[index];

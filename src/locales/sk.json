@@ -60,23 +60,23 @@
   "feedback": {
     "imageAlt": "Interiér vytvorený na mieru",
     "title": "Vytvárame priestory, v ktorých sa budete cítiť ako doma",
-    "description": "Odvážne nápady, precízne prevedenie a bezchybná kvalita — vytvárame interiéry, ktoré inšpirujú, dodávajú energiu a prinášajú pocit skutočného pohodlia."
+    "description": "Plánujete rekonštrukciu? Napíšte nám, čo chcete zmeniť a kde sa priestor nachádza. Ozveme sa vám a preberieme možnosti realizácie."
   },
   "form": {
     "name": "Vaše meno",
-    "namePlaceholder": "Ako vás môžeme osloviť",
-    "phone": "Telefón",
+    "namePlaceholder": "Meno a Priezvisko",
+    "phone": "Telefónne číslo",
     "phonePlaceholder": "+421 940 400 000",
-    "city": "Mesto realizácie prác",
+    "city": "Miesto realizácie (mesto alebo obec)",
     "cityPlaceholder": "Napríklad Bratislava",
     "email": "E-mail",
     "emailPlaceholder": "mail{'@'}example.com",
     "area": "Plocha priestoru",
     "areaPlaceholder": "Napríklad 85",
-    "description": "Čo je potrebné zrekonštruovať",
-    "descriptionPlaceholder": "Stručne opíšte priestor a požadovaný výsledok v dvoch vetách",
+    "description": "Čo plánujete rekonštruovať?",
+    "descriptionPlaceholder": "Stručne opíšte, čo chcete zrekonštruovať a aký výsledok očakávate.",
     "sending": "Odosielanie...",
-    "submit": "Odoslať",
+    "submit": "Odoslať dopyt",
     "validationError": "Skontrolujte telefón a e-mail",
     "success": "Žiadosť bola odoslaná",
     "failure": "Žiadosť sa nepodarilo odoslať"

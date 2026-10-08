@@ -8,7 +8,7 @@
         for="feedback-name"
         class="mb-1 block text-xs text-black/80 font-bold"
       >
-        Vaše jméno
+        {{ t("form.name") }}
       </label>
 
       <input
@@ -17,7 +17,7 @@
         name="name"
         type="text"
         autocomplete="name"
-        placeholder="Jak vás můžeme oslovovat"
+        :placeholder="t('form.namePlaceholder')"
         :class="[inputClass(errors.name), defaultClass]"
       />
     </div>
@@ -27,7 +27,7 @@
         for="feedback-phone"
         class="mb-1 block text-xs text-black/80 font-bold"
       >
-        Telefon
+        {{ t("form.phone") }}
       </label>
 
       <input
@@ -38,7 +38,7 @@
         name="phone"
         type="tel"
         autocomplete="tel"
-        placeholder="+421 940 400 000"
+        :placeholder="t('form.phonePlaceholder')"
         :class="[inputClass(errors.phone), defaultClass]"
       />
     </div>
@@ -48,7 +48,7 @@
         for="feedback-city"
         class="mb-1 block text-xs text-black/80 font-bold"
       >
-        Město realizace prací
+        {{ t("form.city") }}
       </label>
 
       <input
@@ -57,7 +57,7 @@
         name="city"
         type="text"
         autocomplete="address-level2"
-        placeholder="Například Praha"
+        :placeholder="t('form.cityPlaceholder')"
         :class="[inputClass(errors.city), defaultClass]"
       />
     </div>
@@ -67,7 +67,7 @@
         for="feedback-email"
         class="mb-1 block text-xs text-black/80 font-bold"
       >
-        E-mail
+        {{ t("form.email") }}
       </label>
 
       <input
@@ -77,7 +77,7 @@
         name="email"
         type="email"
         autocomplete="email"
-        placeholder="mail@example.com"
+        :placeholder="t('form.emailPlaceholder')"
         :class="[inputClass(errors.email), defaultClass]"
       />
     </div>
@@ -87,7 +87,7 @@
         for="feedback-area"
         class="mb-1 block text-xs text-black/80 font-bold"
       >
-        Plocha prostoru
+        {{ t("form.area") }}
       </label>
 
       <div class="relative">
@@ -97,7 +97,7 @@
           name="area"
           type="text"
           inputmode="decimal"
-          placeholder="Například 85"
+          :placeholder="t('form.areaPlaceholder')"
           :class="[inputClass(errors.area), defaultClass, 'pr-10']"
         />
 
@@ -114,14 +114,14 @@
         for="feedback-description"
         class="mb-1 block shrink-0 text-xs text-black/80 font-bold"
       >
-        Co je potřeba zrekonstruovat
+        {{ t("form.description") }}
       </label>
 
       <textarea
         id="feedback-description"
         v-model="formData.description"
         name="description"
-        placeholder="Stručně popište prostor a požadovaný výsledek ve dvou větách"
+        :placeholder="t('form.descriptionPlaceholder')"
         :class="[
           inputClass(errors.description),
           defaultClass,
@@ -136,7 +136,7 @@
       class="group flex min-w-[160px] items-center justify-between justify-self-end bg-[#111] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-black disabled:opacity-50"
     >
       <span>
-        {{ loading ? "Odesílání..." : "Odeslat" }}
+        {{ loading ? t("form.sending") : t("form.submit") }}
       </span>
 
       <span
@@ -156,17 +156,20 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { useDataLayer } from "@/utils/metrix";
 const { formSubmitSuccess } = useDataLayer();
+const { t, locale } = useI18n();
+const phonePrefix = computed(() => (locale.value === "cz" ? "+420" : "+421"));
 
 const onFormSuccess = () => {
   formSubmitSuccess();
 };
 const formData = reactive({
   name: "",
-  phone: "+4",
+  phone: phonePrefix.value,
   city: "",
   email: "",
   area: "",
@@ -197,7 +200,7 @@ const inputClass = (error) => [
 const protectPrefix = (event) => {
   const input = event.target;
 
-  if (event.key === "Backspace" && input.selectionStart <= 2) {
+  if (event.key === "Backspace" && input.selectionStart <= phonePrefix.value.length) {
     event.preventDefault();
   }
 };
@@ -205,30 +208,27 @@ const protectPrefix = (event) => {
 const formatPhone = () => {
   let digits = formData.phone.replace(/\D/g, "");
 
-  if (!digits.startsWith("4")) {
-    digits = "4" + digits;
+  const prefixDigits = phonePrefix.value.replace(/\D/g, "");
+
+  if (!digits.startsWith(prefixDigits)) {
+    digits = prefixDigits + digits.replace(/^0/, "");
   }
 
-  digits = digits.slice(0, 12);
+  digits = digits.slice(0, prefixDigits.length + 9);
 
-  let result = "+4";
-
-  const rest = digits.slice(1);
+  let result = phonePrefix.value;
+  const rest = digits.slice(prefixDigits.length);
 
   if (rest.length > 0) {
-    result += rest.slice(0, 2);
+    result += " " + rest.slice(0, 3);
   }
 
-  if (rest.length > 2) {
-    result += " " + rest.slice(2, 5);
+  if (rest.length > 3) {
+    result += " " + rest.slice(3, 6);
   }
 
-  if (rest.length > 5) {
-    result += " " + rest.slice(5, 8);
-  }
-
-  if (rest.length > 8) {
-    result += " " + rest.slice(8, 11);
+  if (rest.length > 6) {
+    result += " " + rest.slice(6, 9);
   }
 
   formData.phone = result;
@@ -263,7 +263,7 @@ const validateForm = () => {
 };
 const resetForm = () => {
   Object.keys(formData).forEach((key) => {
-    formData[key] = key === "phone" ? "+4" : "";
+    formData[key] = key === "phone" ? phonePrefix.value : "";
   });
 
   Object.keys(errors).forEach((key) => {
@@ -281,7 +281,7 @@ const showMessage = (text) => {
 
 const handleSubmit = async () => {
   if (!validateForm()) {
-    showMessage("Zkontrolujte telefon a e-mail");
+    showMessage(t("form.validationError"));
 
     return;
   }
@@ -321,7 +321,7 @@ const handleSubmit = async () => {
       throw new Error(result.message || "Server error");
     }
 
-    showMessage("Žádost byla odeslána");
+    showMessage(t("form.success"));
 
     resetForm();
 
@@ -332,7 +332,7 @@ const handleSubmit = async () => {
   } catch (error) {
     console.error(error);
 
-    showMessage("Nepodařilo se odeslat žádost");
+    showMessage(t("form.failure"));
   } finally {
     loading.value = false;
   }

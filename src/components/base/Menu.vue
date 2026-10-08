@@ -9,7 +9,7 @@
       <!-- Десктопное меню -->
       <nav
         class="-mt-2 hidden items-center justify-center gap-7 lg:flex xl:gap-10"
-        aria-label="Hlavní navigace"
+        :aria-label="t('menu.mainNavigation')"
       >
         <a
           v-for="item in safeMenuItems"
@@ -23,7 +23,7 @@
           "
           @click.prevent="scrollToSection(item.id)"
         >
-          {{ item.label }}
+          {{ t(item.labelKey) }}
 
           <span
             class="absolute inset-x-0 -bottom-0.5 h-px origin-left bg-white transition-transform duration-500"
@@ -42,7 +42,7 @@
         class="relative z-[102] -mt-3 flex size-11 translate-y-1 items-center justify-center lg:hidden"
         :aria-expanded="menuOpen"
         aria-controls="mobile-navigation"
-        :aria-label="menuOpen ? 'Zavřít menu' : 'Otevřít menu'"
+        :aria-label="menuOpen ? t('menu.close') : t('menu.open')"
         @click="toggleMenu"
       >
         <span class="relative block h-4 w-7">
@@ -80,7 +80,7 @@
         id="mobile-navigation"
         class="fixed inset-x-0 bottom-0 top-[90px] z-[99] overflow-y-auto overscroll-contain bg-[#111] text-white lg:hidden"
       >
-        <nav class="flex flex-col pt-3" aria-label="Mobilní navigace">
+        <nav class="flex flex-col pt-3" :aria-label="t('menu.mobileNavigation')">
           <a
             v-for="(item, index) in safeMenuItems"
             :key="item.id"
@@ -100,7 +100,7 @@
                 activeSection === item.id ? 'text-white' : 'text-white/50'
               "
             >
-              {{ item.label }}
+              {{ t(item.labelKey) }}
             </span>
 
             <span class="text-lg text-white/30" aria-hidden="true"> → </span>
@@ -113,6 +113,7 @@
 
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { gsap, ScrollTrigger } from "@/utils/gsap";
 
@@ -120,6 +121,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HEADER_HEIGHT = 90;
 const MOBILE_BREAKPOINT = 1023;
+const { t } = useI18n();
 
 const header = ref(null);
 const menuOpen = ref(false);
@@ -142,7 +144,7 @@ const activeSection = ref("");
 const menuItems = [
   {
     id: "realizace",
-    label: "Realizace",
+    labelKey: "menu.projects",
 
     triggerId: null,
 
@@ -162,7 +164,7 @@ const menuItems = [
 
   {
     id: "o-nas",
-    label: "O nás",
+    labelKey: "menu.about",
 
     triggerId: {
       desktop: "o-nas-animation-desktop",
@@ -192,7 +194,7 @@ const menuItems = [
 
   {
     id: "proces",
-    label: "Jak pracujeme",
+    labelKey: "menu.process",
 
     triggerId: {
       desktop: "proces-animation-desktop",
@@ -222,7 +224,7 @@ const menuItems = [
 
   {
     id: "kontakt",
-    label: "Kontakt",
+    labelKey: "menu.contacts",
 
     triggerId: {
       desktop: "kontakt-animation-desktop",
@@ -259,7 +261,7 @@ const safeMenuItems = menuItems.filter((item) => {
     item &&
     typeof item.id === "string" &&
     item.id.length > 0 &&
-    typeof item.label === "string"
+    typeof item.labelKey === "string"
   );
 });
 

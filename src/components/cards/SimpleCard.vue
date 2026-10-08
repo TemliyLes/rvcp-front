@@ -29,7 +29,7 @@
         :target="data.target || '_self'"
         class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-gray-200 transition"
       >
-        Zobrazit realizaci
+        {{ data?.linkText }}
       </a>
     </div>
   </div>

@@ -21,17 +21,20 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 import CardPerProp from "./CardPerProp.vue";
-import { data } from "../../composables/cards.js";
+import { getCards } from "../../composables/cards.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const section = ref(null);
 const cards = ref([]);
+const { t } = useI18n();
+const data = computed(() => getCards(t));
 
 const emit = defineEmits(["show"]);
 

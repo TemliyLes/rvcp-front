@@ -26,18 +26,18 @@
       <div
         class="md:flex justify-between container pt-24 cursor-pointer px-4 md:px-0"
       >
-        <Title>Vybrané realizace</Title>
+        <Title>{{ t("projects.title") }}</Title>
         <Title tag="h3" class="grid place-items-center md:-mb-4 w-fit"
           ><a
             href="https://www.youtube.com/@ObkladaFinalizácia"
             class="flex gap-3"
-            ><span>Zobrazit vše</span> <Arrow /></a
+            ><span>{{ t("projects.viewAll") }}</span> <Arrow /></a
         ></Title>
       </div>
       <CardGrid @show="showModal" />
 
       <div class="container pt-24">
-        <Title>O nás</Title>
+        <Title>{{ t("about.title") }}</Title>
         <About />
       </div>
       <FAQ />
@@ -50,6 +50,7 @@
 
 <script setup>
 import { nextTick, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayout } from "./composables/useLayout";
 
@@ -70,6 +71,7 @@ import Phone from "./components/base/Phone.vue";
 import Supremacy from "./components/screens/Supremacy.vue";
 
 const wrap = ref(null);
+const { t } = useI18n();
 
 const animationsReady = ref(false);
 

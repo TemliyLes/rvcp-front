@@ -10,70 +10,64 @@ import video2 from "@/assets/video/2new.mp4";
 import video3 from "@/assets/video/3new.mp4";
 import videoExt from "@/assets/video/ext.mp4";
 
-export const data = [
+export const getCards = (t) => [
   {
     id: 1,
     poster: img1,
-    alt: "video-1",
-    ariaLabel: "Play video 1",
-    title: "Soukromý dům v Rakousku · 800 m²",
-    description: "Kompletní rekonstrukce",
+    alt: t("projects.cards.0.alt"),
+    title: t("projects.cards.0.title"),
+    description: t("projects.cards.0.description"),
     video: video1,
   },
 
   {
     id: 2,
     poster: img2,
-    alt: "video-2",
-    ariaLabel: "Play video 2",
-    title: "LOŽNICE 19 M² A OBÝVACÍ POKOJ 28 M²",
-    description: "Individuální návrh interiéru",
+    alt: t("projects.cards.1.alt"),
+    title: t("projects.cards.1.title"),
+    description: t("projects.cards.1.description"),
     video: video2,
   },
 
   {
     id: 3,
     poster: img3,
-    alt: "video-3",
-    ariaLabel: "Play video 3",
-    title: "BYT 1,5+KK · 48 M²",
-    description: "Rekonstrukce",
+    alt: t("projects.cards.2.alt"),
+    title: t("projects.cards.2.title"),
+    description: t("projects.cards.2.description"),
     video: video3,
   },
 
   {
     id: 4,
     poster: img4,
-    alt: "project-1",
-    ariaLabel: "Open project 1",
-    title: "TŘÍPOKOJOVÝ BYT · 70 m²",
-    description: "Kompletní rekonstrukce",
+    alt: t("projects.cards.3.alt"),
+    title: t("projects.cards.3.title"),
+    description: t("projects.cards.3.description"),
     link: "https://www.youtube.com/shorts/4HZyKUMSFOU",
-    linkText: "Zobrazit realizaci",
+    linkText: t("projects.viewProject"),
     target: "_blank",
   },
 
   {
     id: 5,
     poster: img5,
-    alt: "project-2",
-    ariaLabel: "Open project 2",
-    title: "Třípokojový byt · 70 m²",
-    description: "Kompletní rekonstrukce",
+    alt: t("projects.cards.4.alt"),
+    title: t("projects.cards.4.title"),
+    description: t("projects.cards.4.description"),
     link: "https://www.instagram.com/p/DKKYm8OK4vv/",
-    linkText: "Zobrazit realizaci",
+    linkText: t("projects.viewProject"),
     target: "_blank",
   },
 
   {
     id: 6,
     poster: img6,
-    alt: "project-3",
-    ariaLabel: "Open project 3",
-    title: "BYT 1+KK · 58 M²",
-    description: "Návrh a finální realizace",
+    alt: t("projects.cards.5.alt"),
+    title: t("projects.cards.5.title"),
+    description: t("projects.cards.5.description"),
     link: videoExt,
-    linkText: "Zobrazit realizaci",
+    linkText: t("projects.viewProject"),
     target: "_blank",
   },
 ];

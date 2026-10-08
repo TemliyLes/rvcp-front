@@ -7,7 +7,7 @@
     <img
       class="absolute w-full h-full object-cover z-[-1]"
       :src="getImageUrl(data?.poster)"
-      :alt="item?.alt"
+      :alt="data?.alt"
     />
   </div>
 </template>

@@ -47,7 +47,7 @@
             <div>
               <div class="text-lg font-semibold leading-none">25 000+</div>
 
-              <div class="mt-1 text-[10px] text-white/45">sledujících</div>
+              <div class="mt-1 text-[10px] text-white/45">{{ t("social.followers") }}</div>
             </div>
           </div>
 
@@ -106,7 +106,7 @@
             <div>
               <div class="text-lg font-semibold leading-none">25 000+</div>
 
-              <div class="mt-1 text-[10px] text-white/45">sledujících</div>
+              <div class="mt-1 text-[10px] text-white/45">{{ t("social.followers") }}</div>
             </div>
           </div>
 
@@ -158,7 +158,7 @@
             <div>
               <div class="text-lg font-semibold leading-none">25 000+</div>
 
-              <div class="mt-1 text-[10px] text-white/45">odběratelů</div>
+              <div class="mt-1 text-[10px] text-white/45">{{ t("social.subscribers") }}</div>
             </div>
           </div>
 
@@ -197,13 +197,13 @@
         <!-- <div
           class="text-[10px] uppercase tracking-[0.12em] text-neutral-500 sm:text-xs"
         >
-          Najdete nás i online
+          {{ t("social.title") }}
         </div> -->
 
         <h2
           class="mt-4 max-w-[720px] text-[34px] font-light uppercase leading-[0.96] tracking-[-0.04em] text-black! sm:text-[46px] lg:text-[50px] xl:text-[58px]"
         >
-          Najdete nás i online
+          {{ t("social.title") }}
 
           <br class="hidden sm:block" />
         </h2>
@@ -211,9 +211,7 @@
         <p
           class="mt-6 max-w-[660px] text-sm leading-relaxed text-black! sm:text-[15px]"
         >
-          Odvážné nápady, precizní provedení a bezchybná kvalita — vytváříme
-          interiéry, které inspirují, dodávají energii a přinášejí pocit
-          skutečného pohodlí.
+          {{ t("social.description") }}
         </p>
 
         <a
@@ -221,7 +219,7 @@
           href="https://www.youtube.com/@ObkladaFinaliz%C3%A1cia"
           class="mt-8 inline-flex min-h-11 items-center justify-center bg-neutral-950 px-7 text-[10px] font-medium uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-80"
         >
-          Přechod na YouTube
+          {{ t("social.youtube") }}
         </a>
       </div>
     </div>
@@ -232,8 +230,10 @@ import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
+const { t } = useI18n();
 
 const section = ref(null);
 const stage = ref(null);

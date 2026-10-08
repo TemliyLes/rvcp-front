@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <!-- =========================================================
+         COOKIEBOT DELAY
+         0–4 сек: баннер скрыт
+         после 4 сек: баннер показывается
+         ========================================================= -->
+    <script>
+      (() => {
+        const DELAY = 4000;
+
+        const startedAt = performance.now();
+
+        let allowDisplay = false;
+        let dialogWasHidden = false;
+        let releaseTimer = null;
+
+        function releaseCookiebot() {
+          if (allowDisplay) return;
+
+          allowDisplay = true;
+
+          console.log("⏱ 4 секунды прошло");
+
+          /*
+           * Если первоначальный Cookiebot действительно
+           * был показан и нами скрыт —
+           * открываем его повторно.
+           */
+          if (
+            dialogWasHidden &&
+            window.Cookiebot &&
+            typeof window.Cookiebot.renew === "function"
+          ) {
+            console.log("👁 Показываем Cookiebot");
+
+            window.Cookiebot.renew();
+          }
+        }
+
+        /*
+         * Cookiebot сообщает, что диалог появился.
+         */
+        window.addEventListener(
+          "CookiebotOnDialogDisplay",
+          () => {
+            console.log("🍪 CookiebotOnDialogDisplay");
+
+            /*
+             * Это уже второй показ после истечения 4 секунд.
+             * Больше не скрываем.
+             */
+            if (allowDisplay) {
+              console.log("✅ Cookiebot оставляем видимым");
+              return;
+            }
+
+            /*
+             * Первый показ — сразу скрываем.
+             */
+            if (
+              window.Cookiebot &&
+              typeof window.Cookiebot.hide === "function"
+            ) {
+              window.Cookiebot.hide();
+
+              dialogWasHidden = true;
+
+              console.log("🙈 Cookiebot сразу скрыт");
+            }
+
+            /*
+             * Показываем баннер именно на 4-й секунде
+             * от начала загрузки страницы.
+             */
+            if (!releaseTimer) {
+              const elapsed = performance.now() - startedAt;
+
+              const remaining = Math.max(0, DELAY - elapsed);
+
+              releaseTimer = window.setTimeout(releaseCookiebot, remaining);
+            }
+          },
+          false,
+        );
+
+        /*
+         * Страховочный таймер.
+         *
+         * Если Cookiebot успел появиться и был скрыт —
+         * откроем его на 4-й секунде.
+         *
+         * Если Cookiebot вообще не показывался
+         * (например, пользователь уже дал consent),
+         * насильно его не открываем.
+         */
+        window.setTimeout(() => {
+          if (dialogWasHidden) {
+            releaseCookiebot();
+          } else {
+            allowDisplay = true;
+          }
+        }, DELAY);
+      })();
+    </script>
+
+    <!-- =========================================================
+         GOOGLE TAG MANAGER
+         Загружается сразу
+         ========================================================= -->
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+
+        j.async = true;
+
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TF66SQ8P");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>Prémiové rekonstrukce na klíč | RVCP</title>
+    <!-- <title>{{ t("main.title") }}</title> -->
+    <meta
+      name="description"
+      content="Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu a plánování až po precizní realizaci na klíč."
+    />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <meta name="theme-color" content="#111111" />
+
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:locale" content="cs_CZ" />
+
+    <meta property="og:site_name" content="RVCP" />
+
+    <meta property="og:title" content="Prémiové rekonstrukce na klíč | RVCP" />
+
+    <meta
+      property="og:description"
+      content="Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu a plánování až po precizní realizaci na klíč."
+    />
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content="Prémiové rekonstrukce na klíč | RVCP" />
+
+    <meta
+      name="twitter:description"
+      content="Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu a plánování až po precizní realizaci na klíč."
+    />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <script type="module" crossorigin src="/assets/index-Ch0nc6ZH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DlAIGe4q.css">
+  </head>
+
+  <body>
+    <!-- =========================================================
+         GOOGLE TAG MANAGER NOSCRIPT
+         ========================================================= -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TF66SQ8P"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!--
+      Loader, модальные окна и другие fixed-элементы
+      телепортируются сюда, вне ScrollSmoother.
+    -->
+    <div id="teleports"></div>
+
+    <!-- Неподвижная оболочка ScrollSmoother -->
+    <div id="smooth-wrapper">
+      <!-- Контейнер, который ScrollSmoother перемещает -->
+      <div id="smooth-content">
+        <!-- Vue-приложение -->
+        <div id="app"></div>
+      </div>
+    </div>
+
+    <noscript>
+      Pro správné fungování této stránky je nutné povolit JavaScript.
+    </noscript>
+    <!-- Google tag (gtag.js) event - delayed navigation helper -->
+    <script>
+      // Helper function to delay opening a URL until a gtag event is sent.
+      // Call it in response to an action that should navigate to a URL.
+      function gtagSendEvent(url) {
+        var callback = function () {
+          if (typeof url === "string") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion_event_submit_lead_form", {
+          event_callback: callback,
+          event_timeout: 2000,
+          // <event_parameters>
+        });
+        return false;
+      }
+    </script>
+  </body>
+</html>

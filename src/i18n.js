@@ -1,33 +1,17 @@
 import { createI18n } from "vue-i18n";
 
 import sk from "./locales/sk.json";
-import de from "./locales/de.json";
+import cz from "./locales/cz.json";
 
-const getLocale = () => {
-  if (typeof window === "undefined") {
-    return "sk";
-  }
-
-  const hostname = window.location.hostname.toLowerCase();
-
-  if (hostname.endsWith(".ch")) {
-    return "de";
-  }
-
-  if (hostname.endsWith(".sk")) {
-    return "sk";
-  }
-
-  return "sk";
-};
+const locale = import.meta.env.VITE_LOCALE || "sk";
 
 export const i18n = createI18n({
   legacy: false,
-  locale: getLocale(),
+  locale,
   fallbackLocale: "sk",
 
   messages: {
     sk,
-    de,
+    cz,
   },
 });

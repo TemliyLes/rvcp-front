@@ -55,7 +55,7 @@
               <img
                 class="size-16 shrink-0 rounded-full object-cover sm:size-20 lg:size-24"
                 src="../../assets/img/man.png"
-                alt="Stano Zachar"
+                :alt="t('about.portraitAlt')"
               />
 
               <div class="min-w-0">
@@ -68,7 +68,7 @@
                 <p
                   class="mt-1 text-sm text-white/60 sm:mt-1.5 lg:mt-2 lg:text-base"
                 >
-                  Zakladatel firmy
+                  {{ t("about.founder") }}
                 </p>
               </div>
             </div>
@@ -79,19 +79,13 @@
             <p
               class="about-text text-sm leading-[1.55] text-white/85 sm:text-[15px] lg:text-lg lg:leading-relaxed lg:text-white/90"
             >
-              Ve stavebnictví a rekonstrukcích působím více než 30 let. Za tu
-              dobu jsem získal bohaté zkušenosti s rekonstrukcemi bytů, domů i
-              komerčních prostorů. Své odborné znalosti jsem dále rozšířil během
-              školení a pracovní praxe v Německu, kde jsem si osvojil moderní
-              stavební postupy a vysoké standardy kvality.
+              {{ t("about.bio1") }}
             </p>
 
             <p
               class="about-text text-sm leading-[1.55] text-white/85 sm:text-[15px] lg:text-lg lg:leading-relaxed lg:text-white/90"
             >
-              U každého projektu kladu důraz na preciznost, kvalitu a
-              spolehlivost, protože věřím, že dobrá práce nemá jen dobře
-              vypadat, ale musí vydržet dlouhá léta.
+              {{ t("about.bio2") }}
             </p>
           </div>
         </div>
@@ -102,7 +96,7 @@
         ref="label"
         class="absolute left-5 top-5 z-[8] max-w-[230px] text-[10px] uppercase leading-relaxed tracking-[0.18em] text-white/70 opacity-0 [transform:translateZ(0)] [will-change:transform,opacity] sm:left-8 sm:top-8 sm:text-xs lg:bottom-8 lg:left-8 lg:top-auto lg:max-w-none lg:text-sm lg:tracking-[0.2em]"
       >
-        Více než 30 let zkušeností
+        {{ t("about.experience") }}
       </div>
     </div>
   </section>
@@ -113,8 +107,10 @@ import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
+const { t } = useI18n();
 
 const section = ref(null);
 const media = ref(null);

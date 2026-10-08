@@ -1,0 +1,100 @@
+{
+  "menu": {
+    "projects": "Realizace",
+    "about": "O nás",
+    "process": "Jak pracujeme",
+    "contacts": "Kontakt",
+    "mainNavigation": "Hlavní navigace",
+    "mobileNavigation": "Mobilní navigace",
+    "open": "Otevřít menu",
+    "close": "Zavřít menu"
+  },
+  "site": {
+    "title": "Prémiové rekonstrukce na klíč"
+  },
+  "hero": {
+    "description": "Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu přes plánování až po finální realizaci s důrazem na kvalitu, precizní provedení a nadčasový výsledek.",
+    "cta": "Domluvit konzultaci"
+  },
+  "projects": {
+    "title": "Vybrané realizace",
+    "viewAll": "Zobrazit vše",
+    "viewProject": "Zobrazit realizaci",
+    "cards": [
+      { "alt": "Rekonstrukce soukromého domu v Rakousku", "title": "Soukromý dům v Rakousku · 800 m²", "description": "Kompletní rekonstrukce" },
+      { "alt": "Interiér ložnice a obývacího pokoje", "title": "LOŽNICE 19 M² A OBÝVACÍ POKOJ 28 M²", "description": "Individuální návrh interiéru" },
+      { "alt": "Rekonstrukce bytu 1,5+kk", "title": "BYT 1,5+KK · 48 M²", "description": "Rekonstrukce" },
+      { "alt": "Třípokojový byt po rekonstrukci", "title": "TŘÍPOKOJOVÝ BYT · 70 m²", "description": "Kompletní rekonstrukce" },
+      { "alt": "Třípokojový byt po rekonstrukci", "title": "Třípokojový byt · 70 m²", "description": "Kompletní rekonstrukce" },
+      { "alt": "Byt 1+kk po návrhu a realizaci", "title": "BYT 1+KK · 58 M²", "description": "Návrh a finální realizace" }
+    ]
+  },
+  "about": {
+    "title": "O nás",
+    "founder": "Zakladatel firmy",
+    "bio1": "Ve stavebnictví a rekonstrukcích působím více než 30 let. Za tu dobu jsem získal bohaté zkušenosti s rekonstrukcemi bytů, domů i komerčních prostorů. Své odborné znalosti jsem dále rozšířil během školení a pracovní praxe v Německu, kde jsem si osvojil moderní stavební postupy a vysoké standardy kvality.",
+    "bio2": "U každého projektu kladu důraz na preciznost, kvalitu a spolehlivost, protože věřím, že dobrá práce nemá jen dobře vypadat, ale musí vydržet dlouhá léta.",
+    "experience": "Více než 30 let zkušeností",
+    "portraitAlt": "Stano Zachar"
+  },
+  "process": {
+    "imageAlt": "Průběh realizace projektu",
+    "imageEyebrow": "Jak pracujeme",
+    "imageTitle": "Od první konzultace až po finální předání",
+    "eyebrow": "Průběh spolupráce",
+    "title": "Jednoduchý a přehledný proces",
+    "steps": [
+      { "title": "Úvodní konzultace", "description": "Nejprve probereme vaše představy, potřeby a očekávání. Společně si projdeme základní informace o prostoru, rozsahu prací a cílech projektu." },
+      { "title": "Prohlídka a návrh řešení", "description": "Posoudíme prostor, technický stav a možnosti realizace. Poté připravíme řešení, které bude odpovídat vašim požadavkům i charakteru prostoru." },
+      { "title": "Cenová nabídka a harmonogram", "description": "Připravíme orientační rozpočet, stanovíme rozsah prací a časový plán realizace, abyste měli jasnou představu o dalším postupu." },
+      { "title": "Realizace projektu", "description": "Po schválení zahájíme realizaci. Dbáme na precizní provedení, kvalitní materiály a důslednou kontrolu každého detailu." },
+      { "title": "Finální předání", "description": "Po dokončení vám předáme hotový prostor připravený k užívání. Dbáme na estetiku, funkčnost a dlouhodobou kvalitu." }
+    ]
+  },
+  "feedback": {
+    "imageAlt": "Interiér vytvořený na míru",
+    "title": "Vytváříme prostory, ve kterých se budete cítit doma",
+    "description": "Odvážné nápady, precizní provedení a bezchybná kvalita — vytváříme interiéry, které inspirují, dodávají energii a přinášejí pocit skutečného pohodlí."
+  },
+  "form": {
+    "name": "Vaše jméno",
+    "namePlaceholder": "Jak vás můžeme oslovovat",
+    "phone": "Telefon",
+    "phonePlaceholder": "+420 940 400 000",
+    "city": "Město realizace prací",
+    "cityPlaceholder": "Například Praha",
+    "email": "E-mail",
+    "emailPlaceholder": "mail{'@'}example.com",
+    "area": "Plocha prostoru",
+    "areaPlaceholder": "Například 85",
+    "description": "Co je potřeba zrekonstruovat",
+    "descriptionPlaceholder": "Stručně popište prostor a požadovaný výsledek ve dvou větách",
+    "sending": "Odesílání...",
+    "submit": "Odeslat",
+    "validationError": "Zkontrolujte telefon a e-mail",
+    "success": "Žádost byla odeslána",
+    "failure": "Nepodařilo se odeslat žádost"
+  },
+  "social": {
+    "title": "Najdete nás i online",
+    "description": "Odvážné nápady, precizní provedení a bezchybná kvalita — vytváříme interiéry, které inspirují, dodávají energii a přinášejí pocit skutečného pohodlí.",
+    "followers": "sledujících",
+    "subscribers": "odběratelů",
+    "youtube": "Přechod na YouTube"
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "connect": "Spojte se s námi",
+    "contactDetails": "Kontaktní údaje",
+    "legalNavigation": "Právní informace",
+    "information": "Informace",
+    "privacy": "Zásady ochrany osobních údajů",
+    "rights": "Všechna práva vyhrazena",
+    "brand": "Real Stav Dizajn"
+  },
+  "modal": {
+    "feedbackLabel": "Formulář pro zpětnou vazbu",
+    "closeDialog": "Zavřít dialogové okno",
+    "close": "Zavřít"
+  }
+}

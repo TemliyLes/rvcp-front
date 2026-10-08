@@ -29,9 +29,7 @@
           </h1>
 
           <p class="mt-6 max-w-xl text-base text-white/70 md:text-xl">
-            Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od
-            návrhu přes plánování až po finální realizaci s důrazem na kvalitu,
-            precizní provedení a nadčasový výsledek.
+            {{ t("hero.description") }}
           </p>
 
           <a
@@ -39,7 +37,7 @@
             class="mt-4 flex w-fit items-center justify-center bg-white px-8 py-5 text-base text-black transition hover:bg-[#ccc]"
             @click.prevent="open"
           >
-            Domluvit konzultaci
+            {{ t("hero.cta") }}
           </a>
         </div>
       </div>

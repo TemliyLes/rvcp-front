@@ -6,7 +6,7 @@
       class="fixed inset-0 z-[9999] overflow-hidden [perspective:1400px]"
       role="dialog"
       aria-modal="true"
-      aria-label="Форма обратной связи"
+      :aria-label="t('modal.feedbackLabel')"
     >
       <!-- Анимированный фон -->
       <div
@@ -24,7 +24,7 @@
       <!-- Закрытие по фону -->
       <button
         type="button"
-        aria-label="Закрыть модальное окно"
+        :aria-label="t('modal.closeDialog')"
         class="absolute inset-0 z-10 cursor-default"
         @click="handleBackdrop"
       />
@@ -41,7 +41,7 @@
           <!-- Кнопка закрытия -->
           <button
             type="button"
-            aria-label="Закрыть"
+            :aria-label="t('modal.close')"
             class="absolute right-4 top-4 z-10 flex size-10 cursor-pointer items-center justify-center rounded-full bg-[#111] text-white transition-transform duration-300 hover:rotate-90 md:right-5 md:top-5"
             @click="requestClose"
           >
@@ -80,6 +80,9 @@ import { nextTick, onBeforeUnmount, ref, watch } from "vue";
 import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 import Form from "../base/Form.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps({
   modelValue: {

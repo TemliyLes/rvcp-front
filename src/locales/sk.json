@@ -64,7 +64,7 @@
     "city": "Mesto realizácie prác",
     "cityPlaceholder": "Napríklad Bratislava",
     "email": "E-mail",
-    "emailPlaceholder": "mail@example.com",
+    "emailPlaceholder": "mail{'@'}example.com",
     "area": "Plocha priestoru",
     "areaPlaceholder": "Napríklad 85",
     "description": "Čo je potrebné zrekonštruovať",

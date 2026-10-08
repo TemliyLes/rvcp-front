@@ -64,7 +64,7 @@
     "city": "Město realizace prací",
     "cityPlaceholder": "Například Praha",
     "email": "E-mail",
-    "emailPlaceholder": "mail@example.com",
+    "emailPlaceholder": "mail{'@'}example.com",
     "area": "Plocha prostoru",
     "areaPlaceholder": "Například 85",
     "description": "Co je potřeba zrekonstruovat",

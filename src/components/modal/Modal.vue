@@ -18,7 +18,7 @@
 
       <button
         type="button"
-        aria-label="Закрыть модальное окно"
+        :aria-label="t('modal.closeDialog')"
         class="absolute inset-0 z-10 cursor-default"
         @click="handleBackdrop"
       />
@@ -35,7 +35,7 @@
           </video>
           <button
             type="button"
-            aria-label="Закрыть"
+            :aria-label="t('modal.close')"
             class="absolute cursor-pointer right-5 top-5 z-10 flex size-10 items-center justify-center rounded-full bg-[#111] text-white transition-transform duration-300 hover:rotate-90"
             @click="requestClose"
           >
@@ -65,8 +65,11 @@
 <script setup>
 import { getImageUrl } from "@/composables/src";
 import { nextTick, onBeforeUnmount, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { gsap, ScrollTrigger } from "@/utils/gsap";
+
+const { t } = useI18n();
 
 const props = defineProps({
   modelValue: {

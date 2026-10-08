@@ -25,7 +25,7 @@
             >
               <img
                 :src="faqImage"
-                alt="Průběh realizace projektu"
+                :alt="t('process.imageAlt')"
                 class="absolute inset-0 h-full w-full object-cover"
                 @load="refreshScrollTrigger"
               />
@@ -41,13 +41,13 @@
                 <p
                   class="text-[11px] uppercase tracking-[0.22em] text-white/55 sm:text-xs lg:text-sm lg:tracking-[0.24em]"
                 >
-                  Jak pracujeme
+                  {{ t("process.imageEyebrow") }}
                 </p>
 
                 <h2
                   class="mt-3 max-w-[580px] text-3xl font-medium leading-[1.05] sm:mt-4 sm:text-4xl lg:text-5xl xl:text-6xl"
                 >
-                  Od první konzultace až po finální předání
+                  {{ t("process.imageTitle") }}
                 </h2>
               </div>
             </div>
@@ -61,13 +61,13 @@
                 <p
                   class="text-[11px] uppercase tracking-[0.22em] text-white/45 sm:text-xs lg:text-sm lg:tracking-[0.24em]"
                 >
-                  Průběh spolupráce
+                  {{ t("process.eyebrow") }}
                 </p>
 
                 <h2
                   class="mt-2.5 max-w-[720px] text-3xl font-medium leading-[1.08] sm:mt-3 sm:text-4xl lg:text-[44px]"
                 >
-                  Jednoduchý a přehledný proces
+                  {{ t("process.title") }}
                 </h2>
               </div>
 
@@ -185,11 +185,13 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 import faqImage from "../../assets/img/bg.jpg";
+const { t } = useI18n();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -219,43 +221,14 @@ let mediaContext = null;
 let accordionTimeline = null;
 let refreshFrame = null;
 
-const steps = [
-  {
-    id: 1,
-    number: "01",
-    title: "Úvodní konzultace",
-    description:
-      "Nejprve probereme vaše představy, potřeby a očekávání. Společně si projdeme základní informace o prostoru, rozsahu prací a cílech projektu.",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Prohlídka a návrh řešení",
-    description:
-      "Posoudíme prostor, technický stav a možnosti realizace. Poté připravíme řešení, které bude odpovídat vašim požadavkům i charakteru prostoru.",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Cenová nabídka a harmonogram",
-    description:
-      "Připravíme orientační rozpočet, stanovíme rozsah prací a časový plán realizace, abyste měli jasnou představu o dalším postupu.",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Realizace projektu",
-    description:
-      "Po schválení zahájíme realizaci. Dbáme na precizní provedení, kvalitní materiály a důslednou kontrolu každého detailu.",
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Finální předání",
-    description:
-      "Po dokončení vám předáme hotový prostor připravený k užívání. Dbáme na estetiku, funkčnost a dlouhodobou kvalitu.",
-  },
-];
+const steps = computed(() =>
+  Array.from({ length: 5 }, (_, index) => ({
+    id: index + 1,
+    number: String(index + 1).padStart(2, "0"),
+    title: t(`process.steps.${index}.title`),
+    description: t(`process.steps.${index}.description`),
+  })),
+);
 
 const setItemRef = (element, index) => {
   if (element) {

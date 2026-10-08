@@ -15,13 +15,13 @@
           class="[backface-visibility:hidden] [will-change:transform,opacity]"
         >
           <p class="text-xs uppercase tracking-[0.22em] text-white/40">
-            Kontakt
+            {{ t("footer.contact") }}
           </p>
 
           <h2
             class="mt-3 max-w-[320px] text-3xl font-medium leading-none tracking-[-0.04em] sm:text-4xl lg:text-5xl"
           >
-            Spojte se s námi
+            {{ t("footer.connect") }}
           </h2>
         </div>
 
@@ -31,7 +31,7 @@
           class="flex flex-col items-start [backface-visibility:hidden] [will-change:transform,opacity]"
         >
           <p class="mb-3 text-[11px] uppercase tracking-[0.18em] text-white/35">
-            Kontaktní údaje
+            {{ t("footer.contactDetails") }}
           </p>
 
           <a
@@ -63,17 +63,17 @@
         <nav
           ref="legal"
           class="flex flex-col items-start [backface-visibility:hidden] [will-change:transform,opacity] md:col-span-2 lg:col-span-1"
-          aria-label="Právní informace"
+          :aria-label="t('footer.legalNavigation')"
         >
           <p class="mb-2 text-[11px] uppercase tracking-[0.18em] text-white/35">
-            Informace
+            {{ t("footer.information") }}
           </p>
 
           <a
             href="/ochrana.html"
             class="border-b border-white/15 py-2 text-sm leading-relaxed text-white/60 transition-colors duration-300 hover:border-white hover:text-white"
           >
-            Zásady ochrany osobních údajů
+            {{ t("footer.privacy") }}
           </a>
 
           <!-- <RouterLink
@@ -105,13 +105,13 @@
             © {{ currentYear }}
           </p>
 
-          <p class="mt-1 text-xs text-white/45">Všechna práva vyhrazena</p>
+          <p class="mt-1 text-xs text-white/45">{{ t("footer.rights") }}</p>
         </div>
 
         <div
           ref="brand"
           class="flex items-end gap-3 [backface-visibility:hidden] [transform-style:preserve-3d] sm:flex-col sm:items-end sm:gap-0"
-          aria-label="Real Stav Dizajn"
+          :aria-label="t('footer.brand')"
         >
           <span
             ref="brandMain"
@@ -134,10 +134,12 @@
 
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { gsap, ScrollTrigger } from "@/utils/gsap";
 
 gsap.registerPlugin(ScrollTrigger);
+const { t } = useI18n();
 
 const currentYear = new Date().getFullYear();
 

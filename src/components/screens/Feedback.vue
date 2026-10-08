@@ -24,7 +24,7 @@
             <img
               ref="image"
               :src="formImage"
-              alt="Interiér vytvořený na míru"
+              :alt="t('feedback.imageAlt')"
               class="absolute inset-0 h-full w-full object-cover [will-change:transform]"
               @load="refreshScrollTrigger"
             />
@@ -40,16 +40,14 @@
                 ref="imageTitle"
                 class="!text-white max-w-[720px] text-3xl font-medium uppercase leading-[0.98] tracking-[-0.035em] md:text-5xl lg:text-5xl xl:text-6xl"
               >
-                Vytváříme prostory, ve kterých se budete cítit doma
+                {{ t("feedback.title") }}
               </h2>
 
               <p
                 ref="imageDescription"
                 class="max-w-[680px] text-base leading-relaxed text-white/75 md:text-lg"
               >
-                Odvážné nápady, precizní provedení a bezchybná kvalita —
-                vytváříme interiéry, které inspirují, dodávají energii a
-                přinášejí pocit skutečného pohodlí.
+                {{ t("feedback.description") }}
               </p>
             </div>
           </div>
@@ -80,8 +78,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Form from "../base/Form.vue";
 import formImage from "../../assets/img/bg.jpg";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
+const { t } = useI18n();
 
 const section = ref(null);
 const contentStage = ref(null);

@@ -12,8 +12,14 @@
   "site": {
     "title": "Prémiové rekonštrukcie na kľúč"
   },
+  "seo": {
+    "title": "Prémiové rekonštrukcie na kľúč | RVCP",
+    "description": "Kompletné rekonštrukcie bytov, domov a komerčných priestorov na Slovensku — od návrhu a plánovania až po precíznu realizáciu na kľúč.",
+    "lang": "sk",
+    "ogLocale": "sk_SK"
+  },
   "hero": {
-    "description": "Kompletné rekonštrukcie bytov, domov a komerčných priestorov na Slovensku — od návrhu a plánovania až po finálnu realizáciu s dôrazom na kvalitu, precízne prevedenie a nadčasový výsledok.",
+    "description": "Realizujeme kompletné rekonštrukcie bytov, domov a komerčných priestorov na Slovensku. Od návrhu a plánovania až po dokončenie prác dbáme na kvalitu, precízne vyhotovenie a nadčasový vzhľad.",
     "cta": "Dohodnúť konzultáciu"
   },
   "projects": {
@@ -23,17 +29,17 @@
     "cards": [
       { "alt": "Rekonštrukcia súkromného domu v Rakúsku", "title": "Súkromný dom v Rakúsku · 800 m²", "description": "Kompletná rekonštrukcia" },
       { "alt": "Interiér spálne a obývacej izby", "title": "SPÁLŇA 19 M² A OBÝVACIA IZBA 28 M²", "description": "Individuálny návrh interiéru" },
-      { "alt": "Rekonštrukcia bytu 1,5+kk", "title": "BYT 1,5+KK · 48 M²", "description": "Rekonštrukcia" },
-      { "alt": "Trojizbový byt po rekonštrukcii", "title": "TROJIZBOVÝ BYT · 70 m²", "description": "Kompletná rekonštrukcia" },
+      { "alt": "Rekonštrukcia bytu 1,5+kk", "title": "Byt s kuchynským kútom · 58 m²", "description": "Rekonštrukcia" },
       { "alt": "Trojizbový byt po rekonštrukcii", "title": "Trojizbový byt · 70 m²", "description": "Kompletná rekonštrukcia" },
-      { "alt": "Byt 1+kk po návrhu a realizácii", "title": "BYT 1+KK · 58 M²", "description": "Návrh a finálna realizácia" }
+      { "alt": "Trojizbový byt po rekonštrukcii", "title": "Trojizbový byt · 70 m²", "description": "Kompletná rekonštrukcia" },
+      { "alt": "Byt s kuchynským kútom · 58 m²", "title": "Byt s kuchynským kútom · 58 m²", "description": "Návrh a realizácia interiéru" }
     ]
   },
   "about": {
     "title": "O nás",
     "founder": "Zakladateľ firmy",
     "bio1": "V stavebníctve a rekonštrukciách pôsobím viac ako 30 rokov. Za ten čas som získal bohaté skúsenosti s rekonštrukciami bytov, domov aj komerčných priestorov. Svoje odborné znalosti som ďalej rozšíril počas školení a pracovnej praxe v Nemecku, kde som si osvojil moderné stavebné postupy a vysoké štandardy kvality.",
-    "bio2": "Pri každom projekte kladiem dôraz na precíznosť, kvalitu a spoľahlivosť, pretože verím, že dobrá práca má nielen dobre vyzerať, ale musí vydržať dlhé roky.",
+    "bio2": "Pri každom projekte kladiem dôraz na precíznosť, kvalitu a spoľahlivosť. Verím, že výsledok má nielen dobre vyzerať, ale aj vydržať dlhé roky.",
     "experience": "Viac ako 30 rokov skúseností",
     "portraitAlt": "Stano Zachar"
   },
@@ -77,7 +83,7 @@
   },
   "social": {
     "title": "Nájdete nás aj online",
-    "description": "Odvážne nápady, precízne prevedenie a bezchybná kvalita — vytvárame interiéry, ktoré inšpirujú, dodávajú energiu a prinášajú pocit skutočného pohodlia.",
+    "description": "Pozrite si naše realizácie a priebeh prác na sociálnych sieťach. Nájdete tam ukážky rekonštrukcií aj detaily hotových interiérov.",
     "followers": "sledovateľov",
     "subscribers": "odberateľov",
     "youtube": "Prejsť na YouTube"

@@ -14,12 +14,12 @@
   },
   "seo": {
     "title": "Prémiové rekonstrukce na klíč | RVCP",
-    "description": "Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu a plánování až po precizní realizaci na klíč.",
+    "description": "Kompletní rekonstrukce bytů, domů a komerčních prostor v Česku — od návrhu a plánování až po precizní realizaci na klíč.",
     "lang": "cs",
     "ogLocale": "cs_CZ"
   },
   "hero": {
-    "description": "Kompletní rekonstrukce bytů, domů a komerčních prostorů v Česku — od návrhu přes plánování až po finální realizaci s důrazem na kvalitu, precizní provedení a nadčasový výsledek.",
+    "description": "Kompletní rekonstrukce bytů, domů a komerčních prostor v Česku — od návrhu přes plánování až po finální realizaci s důrazem na kvalitu, precizní provedení a nadčasový výsledek.",
     "cta": "Domluvit konzultaci"
   },
   "projects": {
@@ -30,7 +30,7 @@
       { "alt": "Rekonstrukce soukromého domu v Rakousku", "title": "Soukromý dům v Rakousku · 800 m²", "description": "Kompletní rekonstrukce" },
       { "alt": "Interiér ložnice a obývacího pokoje", "title": "LOŽNICE 19 M² A OBÝVACÍ POKOJ 28 M²", "description": "Individuální návrh interiéru" },
       { "alt": "Rekonstrukce bytu 1,5+kk", "title": "BYT 1,5+KK · 48 M²", "description": "Rekonstrukce" },
-      { "alt": "Třípokojový byt po rekonstrukci", "title": "TŘÍPOKOJOVÝ BYT · 70 m²", "description": "Kompletní rekonstrukce" },
+      { "alt": "Třípokojový byt po rekonstrukci", "title": "Třípokojový byt · 70 m²", "description": "Kompletní rekonstrukce" },
       { "alt": "Třípokojový byt po rekonstrukci", "title": "Třípokojový byt · 70 m²", "description": "Kompletní rekonstrukce" },
       { "alt": "Byt 1+kk po návrhu a realizaci", "title": "BYT 1+KK · 58 M²", "description": "Návrh a finální realizace" }
     ]
@@ -38,7 +38,7 @@
   "about": {
     "title": "O nás",
     "founder": "Zakladatel firmy",
-    "bio1": "Ve stavebnictví a rekonstrukcích působím více než 30 let. Za tu dobu jsem získal bohaté zkušenosti s rekonstrukcemi bytů, domů i komerčních prostorů. Své odborné znalosti jsem dále rozšířil během školení a pracovní praxe v Německu, kde jsem si osvojil moderní stavební postupy a vysoké standardy kvality.",
+    "bio1": "Ve stavebnictví a rekonstrukcích působím více než 30 let. Za tu dobu jsem získal bohaté zkušenosti s rekonstrukcemi bytů, domů i komerčních prostor. Své odborné znalosti jsem dále rozšířil během školení a pracovní praxe v Německu, kde jsem si osvojil moderní stavební postupy a vysoké standardy kvality.",
     "bio2": "U každého projektu kladu důraz na preciznost, kvalitu a spolehlivost, protože věřím, že dobrá práce nemá jen dobře vypadat, ale musí vydržet dlouhá léta.",
     "experience": "Více než 30 let zkušeností",
     "portraitAlt": "Stano Zachar"
@@ -86,7 +86,7 @@
     "description": "Odvážné nápady, precizní provedení a bezchybná kvalita — vytváříme interiéry, které inspirují, dodávají energii a přinášejí pocit skutečného pohodlí.",
     "followers": "sledujících",
     "subscribers": "odběratelů",
-    "youtube": "Přechod na YouTube"
+    "youtube": "Přejít na YouTube"
   },
   "footer": {
     "contact": "Kontakt",

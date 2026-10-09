@@ -35,10 +35,10 @@
           </p>
 
           <a
-            href="mailto:obklad.finalizacia@gmail.com"
+            href="mailto:pixcreativesk@gmail.com"
             class="break-all text-base leading-tight transition-opacity duration-300 hover:opacity-55 sm:text-lg lg:text-xl"
           >
-            obklad.finalizacia@gmail.com
+            pixcreativesk@gmail.com
           </a>
 
           <!-- <a

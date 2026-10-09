@@ -3,7 +3,7 @@
     id="o-nas"
     ref="section"
     data-anchor-progress="0.92"
-    class="relative mt-8 h-[220dvh] bg-white sm:h-[230dvh] lg:mt-12 lg:h-[240dvh]"
+    class="relative mt-8 h-[180dvh] bg-white sm:h-[190dvh] lg:mt-12 lg:h-[200dvh]"
   >
     <div
       class="sticky top-0 isolate h-dvh overflow-hidden bg-white [perspective:1600px]"
@@ -104,12 +104,12 @@
 
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const { t } = useI18n();
 
 const section = ref(null);
@@ -195,42 +195,49 @@ const createDesktopAnimation = (scroller) => {
     scrollTrigger: {
       trigger: section.value,
       scroller,
-      start: "top top",
+      start: "top 85%",
       end: "bottom bottom",
-      scrub: 1.8,
+      scrub: 0.8,
       invalidateOnRefresh: true,
     },
   });
 
   timeline
+    // Белая поверхность раскрывается раньше
     .to(
       grayCover.value,
       {
         xPercent: 100,
-        duration: 0.42,
+        duration: 0.32,
         force3D: true,
       },
       0,
     )
+
+    // Плавное движение фонового изображения
     .to(
       background.value,
       {
         scale: 1.02,
         xPercent: 0,
         yPercent: 3,
-        duration: 1.3,
+        duration: 1.1,
         force3D: true,
       },
       0,
     )
+
+    // Затемнение начинается раньше
     .to(
       shade.value,
       {
         opacity: 0.48,
         duration: 0.28,
       },
-      0.4,
+      0.2,
     )
+
+    // Панель появляется практически сразу
     .to(
       contentPanel.value,
       {
@@ -239,8 +246,10 @@ const createDesktopAnimation = (scroller) => {
         duration: 0.22,
         force3D: true,
       },
-      0.56,
+      0.28,
     )
+
+    // Подпись
     .to(
       label.value,
       {
@@ -249,8 +258,10 @@ const createDesktopAnimation = (scroller) => {
         duration: 0.22,
         force3D: true,
       },
-      0.62,
+      0.32,
     )
+
+    // Основной контент
     .to(
       contentInner.value,
       {
@@ -259,8 +270,10 @@ const createDesktopAnimation = (scroller) => {
         duration: 0.3,
         force3D: true,
       },
-      0.7,
+      0.34,
     )
+
+    // Портрет
     .to(
       portrait.value,
       {
@@ -270,8 +283,10 @@ const createDesktopAnimation = (scroller) => {
         duration: 0.26,
         force3D: true,
       },
-      0.76,
+      0.4,
     )
+
+    // Текст
     .to(
       paragraphs,
       {
@@ -281,7 +296,7 @@ const createDesktopAnimation = (scroller) => {
         stagger: 0.09,
         force3D: true,
       },
-      0.86,
+      0.46,
     );
 };
 
@@ -295,10 +310,7 @@ const createMobileAnimation = (scroller) => {
     force3D: true,
   });
 
-  /*
-   * На мобильных белая поверхность уходит вверх,
-   * а не вправо.
-   */
+  // На мобильных белая поверхность уходит вверх
   gsap.set(grayCover.value, {
     xPercent: 0,
     yPercent: 0,
@@ -347,41 +359,48 @@ const createMobileAnimation = (scroller) => {
     scrollTrigger: {
       trigger: section.value,
       scroller,
-      start: "top top",
+      start: "top 85%",
       end: "bottom bottom",
-      scrub: 1.5,
+      scrub: 0.7,
       invalidateOnRefresh: true,
     },
   });
 
   timeline
+    // Раскрытие изображения вверх
     .to(
       grayCover.value,
       {
         yPercent: -100,
-        duration: 0.4,
+        duration: 0.3,
         force3D: true,
       },
       0,
     )
+
+    // Плавное масштабирование фона
     .to(
       background.value,
       {
         scale: 1,
         yPercent: 2,
-        duration: 1.2,
+        duration: 1.1,
         force3D: true,
       },
       0,
     )
+
+    // Затемнение
     .to(
       shade.value,
       {
         opacity: 0.2,
         duration: 0.25,
       },
-      0.34,
+      0.18,
     )
+
+    // Подпись
     .to(
       label.value,
       {
@@ -390,8 +409,10 @@ const createMobileAnimation = (scroller) => {
         duration: 0.22,
         force3D: true,
       },
-      0.43,
+      0.22,
     )
+
+    // Панель с текстом
     .to(
       contentPanel.value,
       {
@@ -401,8 +422,10 @@ const createMobileAnimation = (scroller) => {
         ease: "power2.out",
         force3D: true,
       },
-      0.52,
+      0.26,
     )
+
+    // Основной контент
     .to(
       contentInner.value,
       {
@@ -411,8 +434,10 @@ const createMobileAnimation = (scroller) => {
         duration: 0.28,
         force3D: true,
       },
-      0.62,
+      0.3,
     )
+
+    // Портрет
     .to(
       portrait.value,
       {
@@ -422,8 +447,10 @@ const createMobileAnimation = (scroller) => {
         duration: 0.24,
         force3D: true,
       },
-      0.68,
+      0.36,
     )
+
+    // Текстовые параграфы
     .to(
       paragraphs,
       {
@@ -433,7 +460,7 @@ const createMobileAnimation = (scroller) => {
         stagger: 0.07,
         force3D: true,
       },
-      0.76,
+      0.42,
     );
 };
 

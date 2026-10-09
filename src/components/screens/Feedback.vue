@@ -4,7 +4,7 @@
     ref="section"
     data-anchor-progress-desktop="0.16"
     data-anchor-progress-mobile="0.12"
-    class="relative bg-white lg:h-[300dvh]"
+    class="relative bg-white lg:h-[220dvh]"
   >
     <div
       class="relative min-h-dvh overflow-hidden bg-white lg:sticky lg:top-0 lg:h-dvh"
@@ -72,15 +72,15 @@
 
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "vue-i18n";
 
 import Form from "../base/Form.vue";
 import formImage from "../../assets/img/bg.jpg";
-import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const { t } = useI18n();
 
 const section = ref(null);
@@ -104,11 +104,17 @@ const refreshScrollTrigger = () => {
   }
 
   refreshFrame = requestAnimationFrame(() => {
+    refreshFrame = null;
     ScrollTrigger.refresh();
   });
 };
 
+// ==========================================
+// DESKTOP ANIMATION
+// ==========================================
+
 const createDesktopAnimation = (scroller) => {
+  // Начальное состояние сцены
   gsap.set(contentStage.value, {
     x: 0,
     y: 0,
@@ -120,61 +126,67 @@ const createDesktopAnimation = (scroller) => {
     force3D: true,
   });
 
+  // Начальное состояние изображения
   gsap.set(imageBlock.value, {
     autoAlpha: 0,
-    x: -90,
-    z: -150,
-    scale: 0.94,
-    rotationY: -8,
-    clipPath: "inset(0 16% 0 0)",
+    x: -65,
+    z: -100,
+    scale: 0.96,
+    rotationY: -5,
+    clipPath: "inset(0 12% 0 0)",
     transformOrigin: "100% 50%",
     force3D: true,
   });
 
   gsap.set(image.value, {
-    scale: 1.12,
+    scale: 1.1,
     xPercent: -2,
     force3D: true,
   });
 
   gsap.set(imageTitle.value, {
     autoAlpha: 0,
-    y: -24,
-    z: 40,
+    y: -18,
+    z: 25,
     force3D: true,
   });
 
   gsap.set(imageDescription.value, {
     autoAlpha: 0,
-    y: 24,
-    z: 40,
+    y: 18,
+    z: 25,
     force3D: true,
   });
 
+  // Начальное состояние формы
   gsap.set(formBlock.value, {
     autoAlpha: 0,
-    x: 90,
-    z: -120,
-    scale: 0.96,
-    rotationY: 7,
+    x: 65,
+    z: -90,
+    scale: 0.97,
+    rotationY: 5,
     transformOrigin: "0% 50%",
     force3D: true,
   });
 
   gsap.set(formContent.value, {
     autoAlpha: 0,
-    y: 28,
-    z: 35,
+    y: 22,
+    z: 25,
     force3D: true,
   });
 
+  // Анимация привязана к прокрутке
   const timeline = gsap.timeline({
+    defaults: {
+      ease: "none",
+    },
     scrollTrigger: {
       trigger: section.value,
-      scroller,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 2,
+      ...(scroller ? { scroller } : {}),
+      start: "top 85%",
+      end: "top top",
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -189,11 +201,10 @@ const createDesktopAnimation = (scroller) => {
         scale: 1,
         rotationY: 0,
         clipPath: "inset(0 0% 0 0)",
-        duration: 0.46,
-        ease: "power3.out",
+        duration: 1,
         force3D: true,
       },
-      0.08,
+      0,
     )
     .to(
       formBlock.value,
@@ -203,22 +214,20 @@ const createDesktopAnimation = (scroller) => {
         z: 0,
         scale: 1,
         rotationY: 0,
-        duration: 0.46,
-        ease: "power3.out",
+        duration: 1,
         force3D: true,
       },
-      0.12,
+      0,
     )
     .to(
       image.value,
       {
         scale: 1,
         xPercent: 0,
-        duration: 0.56,
-        ease: "power2.out",
+        duration: 1,
         force3D: true,
       },
-      0.14,
+      0,
     )
     .to(
       imageTitle.value,
@@ -226,11 +235,10 @@ const createDesktopAnimation = (scroller) => {
         autoAlpha: 1,
         y: 0,
         z: 0,
-        duration: 0.3,
-        ease: "power2.out",
+        duration: 0.75,
         force3D: true,
       },
-      0.34,
+      0.15,
     )
     .to(
       imageDescription.value,
@@ -238,163 +246,167 @@ const createDesktopAnimation = (scroller) => {
         autoAlpha: 1,
         y: 0,
         z: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        force3D: true,
-      },
-      0.39,
-    )
-    .to(
-      formContent.value,
-      {
-        autoAlpha: 1,
-        y: 0,
-        z: 0,
-        duration: 0.34,
-        ease: "power2.out",
+        duration: 0.65,
         force3D: true,
       },
       0.35,
     )
     .to(
-      contentStage.value,
+      formContent.value,
       {
-        y: -24,
-        duration: 0.75,
-        ease: "none",
+        autoAlpha: 1,
+        y: 0,
+        z: 0,
+        duration: 0.85,
         force3D: true,
       },
-      0.69,
+      0.15,
     );
 };
 
-const createMobileAnimation = (scroller) => {
-  gsap.set(
-    [
-      contentStage.value,
-      imageBlock.value,
-      image.value,
-      imageTitle.value,
-      imageDescription.value,
-      formBlock.value,
-      formContent.value,
-    ],
-    {
-      clearProps: "all",
-    },
-  );
+// ==========================================
 
+const createMobileAnimation = (scroller) => {
+  gsap.set(contentStage.value, {
+    clearProps: "transform",
+  });
+
+  gsap.set(imageBlock.value, {
+    autoAlpha: 0,
+    y: 30,
+    scale: 0.97,
+    rotationY: 0,
+    z: 0,
+    clipPath: "inset(0 0% 0 0)",
+    force3D: true,
+  });
+
+  gsap.set(image.value, {
+    scale: 1.08,
+    xPercent: 0,
+    force3D: true,
+  });
+
+  gsap.set(imageTitle.value, {
+    autoAlpha: 0,
+    y: 20,
+    z: 0,
+  });
+
+  gsap.set(imageDescription.value, {
+    autoAlpha: 0,
+    y: 20,
+    z: 0,
+  });
+
+  gsap.set(formBlock.value, {
+    autoAlpha: 0,
+    x: 0,
+    y: 30,
+    z: 0,
+    scale: 1,
+    rotationY: 0,
+    force3D: true,
+  });
+
+  gsap.set(formContent.value, {
+    autoAlpha: 0,
+    y: 20,
+    z: 0,
+  });
+
+  // ИЗОБРАЖЕНИЕ
   const imageTimeline = gsap.timeline({
+    defaults: {
+      ease: "none",
+    },
     scrollTrigger: {
       trigger: imageBlock.value,
       scroller,
-      start: "top 85%",
-      once: true,
+      start: "top 95%",
+      end: "bottom bottom",
+      scrub: 0.6,
+      invalidateOnRefresh: true,
     },
   });
 
   imageTimeline
-    .fromTo(
+    .to(
       imageBlock.value,
       {
-        autoAlpha: 0,
-        x: -36,
-        rotationY: -3,
-        transformPerspective: 1000,
-        transformOrigin: "100% 50%",
-      },
-      {
         autoAlpha: 1,
-        x: 0,
-        rotationY: 0,
+        y: 0,
+        scale: 1,
         duration: 1,
-        ease: "power3.out",
       },
       0,
     )
-    .fromTo(
+    .to(
       image.value,
       {
-        scale: 1.08,
-      },
-      {
         scale: 1,
-        duration: 1.2,
-        ease: "power2.out",
+        duration: 1,
       },
       0,
     )
-    .fromTo(
+    .to(
       imageTitle.value,
       {
-        autoAlpha: 0,
-        y: -18,
-      },
-      {
         autoAlpha: 1,
         y: 0,
         duration: 0.7,
-        ease: "power2.out",
       },
-      0.28,
+      0.15,
     )
-    .fromTo(
+    .to(
       imageDescription.value,
       {
-        autoAlpha: 0,
-        y: 18,
-      },
-      {
         autoAlpha: 1,
         y: 0,
         duration: 0.7,
-        ease: "power2.out",
       },
-      0.36,
+      0.3,
     );
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: formBlock.value,
-        scroller,
-        start: "top 88%",
-        once: true,
-      },
-    })
-    .fromTo(
+  // ФОРМА
+  const formTimeline = gsap.timeline({
+    defaults: {
+      ease: "none",
+    },
+    scrollTrigger: {
+      trigger: formBlock.value,
+      scroller,
+      start: "top 95%",
+      end: "bottom bottom",
+      scrub: 0.6,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  formTimeline
+    .to(
       formBlock.value,
       {
-        autoAlpha: 0,
-        x: 36,
-        rotationY: 3,
-        transformPerspective: 1000,
-        transformOrigin: "0% 50%",
-      },
-      {
         autoAlpha: 1,
-        x: 0,
-        rotationY: 0,
+        y: 0,
         duration: 1,
-        ease: "power3.out",
       },
       0,
     )
-    .fromTo(
+    .to(
       formContent.value,
-      {
-        autoAlpha: 0,
-        y: 20,
-      },
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.75,
-        ease: "power2.out",
+        duration: 0.85,
       },
-      0.25,
+      0.15,
     );
 };
+
+// ==========================================
+// LIFECYCLE
+// ==========================================
 
 onMounted(async () => {
   await nextTick();

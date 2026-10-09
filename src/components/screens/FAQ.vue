@@ -461,54 +461,63 @@ const createDesktopAnimation = (scroller) => {
     scrollTrigger: {
       trigger: section.value,
       scroller,
-      start: "top top",
+      start: "top 85%",
       end: "bottom bottom",
-      scrub: 2.25,
+      scrub: 0.8,
       invalidateOnRefresh: true,
     },
   });
 
   timeline
+    // Раскрываем белую шторку сразу
     .to(
       curtain.value,
       {
         scaleY: 0,
-        duration: 0.44,
+        duration: 0.32,
         ease: "none",
         force3D: true,
       },
-      0.18,
+      0,
     )
+
+    // Показываем изображение раньше
     .to(
       imageBlock.value,
       {
         autoAlpha: 1,
         x: 0,
-        duration: 0.3,
+        duration: 0.28,
         force3D: true,
       },
-      0.66,
+      0.18,
     )
+
+    // Показываем FAQ раньше
     .to(
       faqBlock.value,
       {
         autoAlpha: 1,
         x: 0,
-        duration: 0.3,
+        duration: 0.28,
         force3D: true,
       },
-      0.68,
+      0.2,
     )
+
+    // Заголовок
     .to(
       heading.value,
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.22,
+        duration: 0.2,
         force3D: true,
       },
-      0.73,
+      0.26,
     )
+
+    // Пункты FAQ
     .to(
       itemRefs.value,
       {
@@ -518,8 +527,10 @@ const createDesktopAnimation = (scroller) => {
         stagger: 0.032,
         force3D: true,
       },
-      0.76,
+      0.3,
     )
+
+    // Текст поверх изображения
     .to(
       imageContent.value,
       {
@@ -528,34 +539,40 @@ const createDesktopAnimation = (scroller) => {
         duration: 0.24,
         force3D: true,
       },
-      0.78,
+      0.32,
     )
+
+    // Финальное движение сцены
     .to(
       contentStage.value,
       {
         y: -18,
         scale: 0.988,
-        duration: 0.72,
+        duration: 0.55,
         force3D: true,
       },
-      1.08,
+      0.72,
     )
+
+    // Затемнение
     .to(
       endShade.value,
       {
         opacity: 0.24,
-        duration: 0.72,
+        duration: 0.55,
       },
-      1.08,
+      0.72,
     )
+
+    // Индикатор завершения
     .to(
       endProgress.value,
       {
         scaleX: 1,
-        duration: 0.72,
+        duration: 0.55,
         force3D: true,
       },
-      1.08,
+      0.72,
     );
 };
 

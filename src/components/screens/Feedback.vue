@@ -55,13 +55,13 @@
           <!-- Форма -->
           <div
             ref="formBlock"
-            class="relative flex [backface-visibility:hidden] [transform-style:preserve-3d] [will-change:transform,opacity] lg:h-[calc(100dvh-144px)] lg:min-h-[480px] lg:self-start lg:items-center"
+            class="relative flex max-sm:px-5 sm:max-lg:px-[25px] lg:max-xl:pr-10 [backface-visibility:hidden] [transform-style:preserve-3d] [will-change:transform,opacity] lg:h-[calc(100dvh-144px)] lg:min-h-[480px] lg:self-start lg:items-center"
           >
             <div
               ref="formContent"
               class="w-full max-w-[720px] [will-change:transform,opacity]"
             >
-              <Form />
+              <Form class="max-lg:px-0!" />
             </div>
           </div>
         </div>

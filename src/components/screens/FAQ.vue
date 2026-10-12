@@ -55,7 +55,7 @@
             <!-- FAQ -->
             <div
               ref="faqBlock"
-              class="p-4 md:p-0 relative w-full self-start overflow-visible opacity-0 [backface-visibility:hidden] [transform:translate3d(0,0,0)] [will-change:transform,opacity]"
+              class="p-4 md:p-0 max-sm:px-5! sm:max-lg:px-[25px]! lg:max-xl:pr-10! relative w-full self-start overflow-visible opacity-0 [backface-visibility:hidden] will-change-transform"
             >
               <div ref="heading" class="mb-5 opacity-0 sm:mb-6">
                 <p

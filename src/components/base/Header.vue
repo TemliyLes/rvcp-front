@@ -4,7 +4,7 @@
     :style="headerStyle"
   >
     <div
-      class="box-border flex justify-between h-full w-full items-center gap-4 px-4 md:px-12 backdrop-blur-2xl"
+      class="box-border flex justify-between h-full w-full items-center gap-4 px-4 md:px-12 max-lg:pr-[85px]! backdrop-blur-2xl"
     >
       <Logo class="hidden md:block md:relative shrink-0 absolute" />
       <slot />

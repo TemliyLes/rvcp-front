@@ -3,7 +3,7 @@
     ref="footer"
     class="relative overflow-hidden bg-[#111] text-white [perspective:1200px] p-4 md:p-0"
   >
-    <div class="container">
+    <div class="container max-sm:px-0 max-sm:pb-10 sm:max-lg:px-[25px] lg:max-xl:px-10">
       <!-- Основная часть -->
       <div
         ref="mainGrid"

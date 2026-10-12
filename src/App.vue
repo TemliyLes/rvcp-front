@@ -24,20 +24,20 @@
         @open="openForm"
       />
       <div
-        class="md:flex justify-between container pt-24 cursor-pointer px-4 md:px-0"
+        class="md:flex justify-between container pt-24 cursor-pointer"
       >
-        <Title>{{ t("projects.title") }}</Title>
-        <Title tag="h3" class="grid place-items-center md:-mb-4 w-fit"
-          ><a
+        <Title pad>{{ t("projects.title") }}</Title>
+        <Title pad tag="h3" class="grid place-items-center md:-mb-4 w-fit"
+          ><a 
             href="https://www.youtube.com/@ObkladaFinalizácia"
-            class="flex gap-3"
+            class="flex gap-3 items-center"
             ><span>{{ t("projects.viewAll") }}</span> <Arrow /></a
         ></Title>
       </div>
       <CardGrid @show="showModal" />
 
       <div class="container pt-24">
-        <Title>{{ t("about.title") }}</Title>
+        <Title pad>{{ t("about.title") }}</Title>
         <About />
       </div>
       <FAQ />
